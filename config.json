@@ -1,0 +1,11 @@
+{
+    "prefix": "!ch",
+    "logsChannel": "logs",
+    "reportsChannel": "reports",
+    "warnChannel": "avertissements",
+  
+    "activity": {
+      "streaming": false,
+      "game": ""
+    }
+  }
