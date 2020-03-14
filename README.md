@@ -1,6 +1,6 @@
 CH-BOT MADE BY Nem-developing
-
-* Prerequisits : 
+-----------------------------
+Prerequisits : 
 - node.js : https://nodejs.org/en/
 
 
