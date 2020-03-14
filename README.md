@@ -15,10 +15,10 @@ Prerequisits :
 
 Node Package Manager's installation : 
 
-npm i discord.js
-npm i superagent
-npm i fs
-npm i moment
+- npm i discord.js
+- npm i superagent
+- npm i fs
+- npm i moment
 
 
 #########################################################################
