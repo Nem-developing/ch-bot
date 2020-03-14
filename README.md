@@ -1,7 +1,9 @@
-CH-BOT MADE BY Nem-developing
+#CH-BOT MADE BY Nem-developing
 
 * Prerequisits : 
 - node.js : https://nodejs.org/en/
+
+
 * Node Package Manager's installation : 
 - npm i discord.js
 - npm i superagent
