@@ -4,7 +4,7 @@ Prerequisits :
 - node.js : https://nodejs.org/en/
 
 
-* Node Package Manager's installation : 
+Node Package Manager's installation : 
 - npm i discord.js
 - npm i superagent
 - npm i fs
