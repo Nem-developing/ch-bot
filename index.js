@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = require("./token.json");
+const badlist = require("./badlist.json")
 const superagent = require('superagent');
 client.commands = new Discord.Collection();
 const fs = require('fs');
@@ -28,9 +29,10 @@ fs.readdir('./Events/', (error, f) => {
         });
 });
 
+
 client.on("message", (message) => {
-    if (message.content.startsWith("@Chrétiens-FR")) {
-      message.channel.send("Le meilleur bot du monde !");
+    if (message.content.startsWith("<@!430395704268161025>")) {
+        message.channel.send("Qui me veut ? Tu veut de l'aide ? Fait : `!ch fr`.");
     }
     if (message.content.startsWith("Chrétien-Fr")) {
       message.channel.send("Pourquoi parles-tu du meilleur bot de l'univers ? (je suis objectif, promis !)");
@@ -103,7 +105,7 @@ client.on('messageDelete', message => {
 	let wordArray = msg.content.split("  ");
 	console.log(wordArray);
 
-	let filterWords = ["teuch","tg","send nude","salope","connard","enculé","con","conne","fils de pute","sale race","chiennasse","fils de cendres","follasse","enculado","fils de viol","nique ta mère","fils d'avortement","grognasse"];
+     let filterWords = (badlist.liste) // Ici j'ai placé la liste dans un fichier appart, cela permet de rendre le code plus propre et sans grot mots d'ailleurs.
 	for (var i = 0; i < filterWords.length; i++)
 	{
 		if (wordArray.includes(filterWords[i]))
