@@ -1,8 +1,8 @@
 CH-BOT MADE BY Nem-developing
 -----------------------------
 Informations : 
-- Ce code est celui du bot de CH-FR
-Join us : https://discord.gg/AhQS2ff
+- Ce code est celui du bot dédié au serveur Chrétiens-FR
+Rejoins-nous : https://discord.gg/AhQS2ff
 
 
 Prerequisits : 
