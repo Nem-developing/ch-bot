@@ -1,4 +1,4 @@
-module.exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => { 
     if (!args.join(' ')) { return message.channel.send('Vous n\'avez spécifié aucun rôle !'); }
     if (!message.guild.member(message.author.id).hasPermission('MANAGE_ROLES')) { return message.channel.send('Vous n\'avez pas la permission de `gérer les rôles` !'); }
     if (!message.guild.member(client.user.id).hasPermission('MANAGE_ROLES')) { return message.channel.send('Vous n\'avez pas la permission de `gérer les rôles` !'); }

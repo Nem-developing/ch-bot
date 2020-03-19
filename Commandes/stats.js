@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
 module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;

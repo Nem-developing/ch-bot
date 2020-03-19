@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
 module.exports.run = (client, message, args) => {
     if (!message.guild.member(message.author).hasPermission('KICK_MEMBERS')) { return message.channel.send('Vous n\'avez pas la permission !'); }
