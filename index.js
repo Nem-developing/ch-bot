@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = require("./token.json");
 const badlist = require("./badlist.json")
-const superagent = require('superagent');
 client.commands = new Discord.Collection();
 const fs = require('fs');
 
@@ -101,24 +100,56 @@ client.on('messageDelete', message => {
 
 
 
- client.on("message", msg => {
-	let wordArray = msg.content.split("  ");
-	console.log(wordArray);
+client.on("message", msg => {
+    let wordArray = msg.content.split("  ");
+    console.log(wordArray);
 
-     let filterWords = (badlist.liste) // Ici j'ai placé la liste dans un fichier appart, cela permet de rendre le code plus propre et sans grot mots d'ailleurs.
-	for (var i = 0; i < filterWords.length; i++)
-	{
-		if (wordArray.includes(filterWords[i]))
-		{
-      msg.delete();    
-      msg.channel.send(
-        `Désolé ${
-          msg.author.username
-        }, Vous n'utilisez pas un language correct...`).then(msg => msg.delete(5000));
-      msg.channel.startTyping();
-      msg.channel.send(`!ch warn ${msg.author} Propos Obscènes`)
-    } 
-	}
+    let filterWords = (badlist.liste) // Ici j'ai placé la liste dans un fichier appart, cela permet de rendre le code plus propre et sans grot mots d'ailleurs.
+    for (var i = 0; i < filterWords.length; i++) {
+        if (wordArray.includes(filterWords[i])) {
+            msg.delete();
+            msg.channel.send(
+                `Désolé ${
+                msg.author.username
+                }, Vous n'utilisez pas un language correct...`).then(msg => msg.delete(5000));
+            msg.channel.startTyping();
+            msg.channel.send(`!ch warn ${msg.author} Propos Obscènes`)
+        }
+    }
 })
 
 client.login(token.token);
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                     //
+//                                                                                                     //
+// Jouez franc-jeux quand vous utilisez et/ou modifiez le code d'un autre.                             //
+// Même si le code est rendu public sous la licence ISC.                                               //
+// Cela relève de l'hygiène de developpement de spécifier les créateurs du code original               //
+//                                                                                                     //
+//                                                                                                     //
+//                                                                                                     //
+// Notez cette information pour tout les autres possibles codes que vous récupérez sur GitHub         //
+//                                                                                                     //
+// --> Spécifiez le nom / pseudo du créateur : nem-developing                                          //
+// --> Lien vers son GitHub : https://github.com/nem-developing                                        //
+//                                                                                                     //
+// (info) Je dit ceci dans le cadre du developement et du partage du code du bot CH-FR cependant       //
+// cela relève de la morale, ne faites pas ceci simplement pour moi mais pour tout les autres          //
+// projets que vous réalisez en utilisant le code de quelqu'un d'autre . (info)                       //
+//                                                                                                     //
+//                                                                                                     //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                _______      _____________                 __           _______                       _______                    _________     _________     _________                  ____      //
+//  |\      |    |            |      |      |               |   \        |           \            /    |           |              |         |   |         |        |      |\      |      /          //
+//  | \     |    |            |      |      |               |     \      |            \          /     |           |              |         |   |         |        |      | \     |     /           //
+//  |  \    |    |            |      |      |               |       \    |             \        /      |           |              |         |   |_________|        |      |  \    |     |           //
+//  |   \   |    |=====       |      |      |     =====     |        |   |=====         \      /       |=====      |              |         |   |                  |      |   \   |     |     __    //
+//  |    \  |    |            |      |      |               |       /    |               \    /        |           |              |         |   |                  |      |    \  |     |       |   //
+//  |     \ |    |            |      |      |               |     /      |                \  /         |           |              |         |   |                  |      |     \ |      \      /   //
+//  |      \|    |_______     |      |      |               |__ /        |_______          \/          |_______    |_________     |_________|   |              ____|____  |      \|       \____/    //
+//                                                                                                                                                                                                  //
+//                                                                                                                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
