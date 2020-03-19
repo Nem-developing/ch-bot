@@ -1,9 +1,11 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const token = require("./token.json");
-const badlist = require("./badlist.json")
-client.commands = new Discord.Collection();
-const fs = require('fs');
+const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const client = new Discord.Client();  // Création de la variable client.
+const token = require("./token.json");  // Ici on cache le token dans le fichier token.json du répértoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
+const badlist = require("./badlist.json")  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
+client.commands = new Discord.Collection();  // Création de la variable commande.
+const fs = require('fs');  // Import de la bibliothéque "FS".
+
+// Chargement des différentes commandes du fichier /Commandes
 
 fs.readdir('./Commandes/', (error, f) => {
     if (error) { return console.error(error); }
@@ -17,6 +19,8 @@ fs.readdir('./Commandes/', (error, f) => {
         });
 });
 
+// Chargement des différents événements du fichier /Events
+
 fs.readdir('./Events/', (error, f) => {
     if (error) { return console.error(error); }     
         console.log(`${f.length} events chargés`);
@@ -28,9 +32,10 @@ fs.readdir('./Events/', (error, f) => {
         });
 });
 
+// Actions suite à une commande précise dans le chat
 
 client.on("message", (message) => {
-    if (message.content.startsWith("<@!430395704268161025>")) {
+    if (message.content.startsWith("<@!430395704268161025>")) { // Ici c'est l'identifiant du bot @CH-FR => Actions après son appel en mention.
         message.channel.send("Qui me veut ? Tu veut de l'aide ? Fait : `!ch fr`.");
     }
     if (message.content.startsWith("Chrétien-Fr")) {
@@ -61,9 +66,11 @@ client.on("message", (message) => {
 	
   });
 
+// Actions après un message suprimé vers le serveur.
+
 client.on('messageDelete', message => {
     console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
-    client.channels.get("682716557176340682").send({
+    client.channels.get("682716557176340682").send({ //  la suite de chifre est l'identifiant unique du channel d'informations lors de la supréssion de messages
         embed: {
             color: 3447003,
             author: {
@@ -98,7 +105,7 @@ client.on('messageDelete', message => {
     })
 })
 
-
+// Vérification de gros mots.
 
 client.on("message", msg => {
     let wordArray = msg.content.split("  ");
@@ -131,14 +138,14 @@ client.login(token.token);
 //                                                                                                     //
 //                                                                                                     //
 //                                                                                                     //
-// Notez cette information pour tout les autres possibles codes que vous récupérez sur GitHub         //
+// Notez cette information pour tout les autres possibles codes que vous récupérez sur GitHub          //
 //                                                                                                     //
 // --> Spécifiez le nom / pseudo du créateur : nem-developing                                          //
 // --> Lien vers son GitHub : https://github.com/nem-developing                                        //
 //                                                                                                     //
 // (info) Je dit ceci dans le cadre du developement et du partage du code du bot CH-FR cependant       //
 // cela relève de la morale, ne faites pas ceci simplement pour moi mais pour tout les autres          //
-// projets que vous réalisez en utilisant le code de quelqu'un d'autre . (info)                       //
+// projets que vous réalisez en utilisant le code de quelqu'un d'autre . (info)                        //
 //                                                                                                     //
 //                                                                                                     //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
