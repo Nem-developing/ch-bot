@@ -1,4 +1,6 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const moment = require('moment');
+
 
 module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
@@ -6,7 +8,7 @@ module.exports.run = (client, message, args) => {
 
     message.channel.send({
         embed: {
-            color: 0xe43333,
+            color: 3447003,
             title: `Statistiques du l'utilisateur **${membre.user.username}**`,
             thumbnail: {
                 url: membre.user.displayAvatarURL
