@@ -16,6 +16,3 @@ Node Package Manager's installation :
 - npm i moment
 
 My GITHUB : https://github.com/Nem-developing
-
-
-#	Good coding !		
