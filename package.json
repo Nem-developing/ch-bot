@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord-auditlog": "^1.9.4"
+    "discord-auditlog": "^1.9.4",
+    "moment": "^2.24.0"
   }
 }
