@@ -19,7 +19,7 @@ fs.readdir('./Commandes/', (error, f) => {
         });
 });
 
-// Chargement des différents événements du fichier /Events
+// Chargement des différents événements du fichier Events
 
 fs.readdir('./Events/', (error, f) => {
     if (error) { return console.error(error); }     
@@ -103,7 +103,7 @@ client.on('messageDelete', message => {
         }
 
     })
-})
+});
 
 // Vérification de gros mots.
 
