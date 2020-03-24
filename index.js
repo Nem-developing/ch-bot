@@ -69,43 +69,40 @@ client.on("message", (message) => {
 // Actions après un message suprimé vers le serveur.
 
 client.on('messageDelete', message => {
-	const Discord = require('discord.js');
-	const client = new Discord.Client();
-
-    console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
-    client.channels.get("682716557176340682").send({//  la suite de chifre est l'identifiant unique du channel d'informations lors de la supréssion de messages
+	console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
+	client.channels.get("682716557176340682").send({//  la suite de chifre est l'identifiant unique du channel d'informations lors de la supréssion de messages
 	    embed: {
-            color: 3447003,
-            author: {
-                name: client.user.username,
-                icon_url: message.author.avatarURL
-            },
-            title: "Message suprimé !",
-            url: "",
-            fields: [{
-                name: "`Auteur du message :`",
-                value: `${message.author.username}`
-            },
-            {
-                name: "`Message :`",
-                value: `**${message.cleanContent}**`
-            },
-            {
-                name: "`Heure`",
-                value: new Date()
-            },
-            {
-                    name: "`CHANEL:`",
-                    value: `#${message.channel.name}`
-            }],
-            timestamp: new Date(),
-            footer: {
-                icon_url: message.author.avatarURL,
-                text: "© Chrétiens-FR - DELETED MESSAGE !"
-            }
-        }
+	    color: 3447003,
+	    author: {
+		name: client.user.username,
+		icon_url: message.author.avatarURL
+	    },
+	    title: "Message suprimé !",
+	    url: "",
+	    fields: [{
+		name: "`Auteur du message :`",
+		value: `${message.author.username}`
+	    },
+	    {
+		name: "`Message :`",
+		value: `**${message.cleanContent}**`
+	    },
+	    {
+		name: "`Heure`",
+		value: new Date()
+	    },
+	    {
+		    name: "`CHANEL:`",
+		    value: `#${message.channel.name}`
+	    }],
+	    timestamp: new Date(),
+	    footer: {
+		icon_url: message.author.avatarURL,
+		text: "© Chrétiens-FR - DELETED MESSAGE !"
+	    }
+	}
 
-    })
+	})
 })
 
 // Vérification de gros mots.
