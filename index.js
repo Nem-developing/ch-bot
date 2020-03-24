@@ -69,6 +69,9 @@ client.on("message", (message) => {
 // Actions après un message suprimé vers le serveur.
 
 client.on('messageDelete', message => {
+	const Discord = require('discord.js');
+	const client = new Discord.Client();
+
     console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
     client.channels.get("682716557176340682").send({//  la suite de chifre est l'identifiant unique du channel d'informations lors de la supréssion de messages
 	    embed: {
