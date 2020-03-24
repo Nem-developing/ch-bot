@@ -70,8 +70,8 @@ client.on("message", (message) => {
 
 client.on('messageDelete', message => {
     console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
-    client.channels.get("682716557176340682").send({//  la suite de chifre est l'identifiant unique du channel d'informations lors de la supréssion de messages
-        embed: {
+    client.channels.get("682716557176340682").send({
+	    embed: {
             color: 3447003,
             author: {
                 name: client.user.username,
