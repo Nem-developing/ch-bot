@@ -1,14 +1,11 @@
 {
   "name": "ch-fr",
-  "version": "1.0.0",
-  "description": "",
+  "version": "3.20.55",
+  "description": "bot for ch-fr",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "moment": "^2.24.0"
-  }
+  "author": "Nem-Developing",
+  "license": "ISC"
 }
