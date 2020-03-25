@@ -1,7 +1,3 @@
 module.exports = (client) => {
-    client.user.setPresence({
-        game: {
-            name: "!ch help - V3.20.55"
-        }
-    });
+    client.user.setActivity('!ch help | V3.20.69 | Made by Nem', { type: "PLAYING"});
 };
