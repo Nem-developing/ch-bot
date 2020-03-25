@@ -59,7 +59,7 @@ client.on("message", (message) => {
     if (message.content.startsWith("ALEA")){
      message.channel.bulkDelete(1);
      message.channel.send("+random").then(msg => msg.delete(1000));    }
-}
+})
     
 
 // Vérification de gros mots.
