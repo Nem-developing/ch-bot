@@ -19,7 +19,7 @@ fs.readdir('./Commandes/', (error, f) => {
         });
 });
 
-// Chargement des différents événements du fichier Events
+// Chargement des différents événements du fichier /Events
 
 fs.readdir('./Events/', (error, f) => {
     if (error) { return console.error(error); }     
@@ -59,18 +59,18 @@ client.on("message", (message) => {
     if (message.content.startsWith("ALEA")){
      message.channel.bulkDelete(1);
      message.channel.send("+random").then(msg => msg.delete(1000));    }
-})
+
     
+	
+	
+	
+  });
 
-
-
-
-
-// Actions après un message suprimé vers le serveur.	
+// Actions après un message suprimé vers le serveur.
 
 client.on('messageDelete', message => {
     console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
-    client.channels.get('682716557176340682').send({            //  la suite de chifre est l'identifiant unique du channel d'informations lors de la supréssion de messages	
+    client.channels.cache.get("682716557176340682").send({
         embed: {
             color: 3447003,
             author: {
@@ -92,8 +92,8 @@ client.on('messageDelete', message => {
                 value: new Date()
             },
             {
-                name: "`CHANEL:`",
-                value: `#${message.channel.name}`
+                    name: "`CHANEL:`",
+                    value: `#${message.channel.name}`
             }],
             timestamp: new Date(),
             footer: {
@@ -103,12 +103,7 @@ client.on('messageDelete', message => {
         }
 
     })
-});
-
-
-
-
-
+})
 
 // Vérification de gros mots.
 
