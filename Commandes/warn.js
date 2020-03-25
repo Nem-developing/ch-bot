@@ -67,7 +67,7 @@ module.exports.run = (client, message, args) => {
 
     mentioned.send(warningEmbed);  // On envoie en MP l'embed à l'utilisateur averti.
     message.channel.send(warnSuccessfulEmbed); // On confirme dans le tchat courant que le warn à été pris en compte.
-    client.channels.get("658348418816540723").send(publicwarn);     // envoie dans le channel d'id 658348418816540723 l'embed "publicwarn"
+    client.channels.cache.get("658348418816540723").send(publicwarn);     // envoie dans le channel d'id 658348418816540723 l'embed "publicwarn"
 
 
     message.delete(); // suprime le message qui appel le bot.
