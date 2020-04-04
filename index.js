@@ -32,6 +32,14 @@ fs.readdir('./Events/', (error, f) => {
         });
 });
 
+
+// Message de bienvenue
+
+client.on('guildMemberAdd', member => {
+    member.send("__**Bienvenue à toi sur le serveur Chrétiens-FR !**__ \n\nL'équipe du staff de **CH-FR** te souhaites de passer de très bon moments !\nTu peut et dès ton arrivée, lire & accepter le **#règlement** du serveur affin d'accéder au serveur. \n\nDès ton arrivée parmi nous tu pourras accéder au salon **#rôles** qui te va te permettre  de sélectionner ta branche du christianisme mais également de te donner le rôle de Baptiser ou non. \n\n**Le staff de Chrétiens-FR** te souhaites de passer une très bonne aventure parmi eux et de faire de très belles rencontres. \n\n\nL'équipe d'administration ♥.");
+});
+
+
 // Actions suite à une commande précise dans le chat
 
 client.on("message", (message) => {
