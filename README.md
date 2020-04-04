@@ -16,6 +16,8 @@ Node Package Manager's installation :
 
 N'oubliez pas la modification du fichier "token.json".
 
+Pour démarrer le bot : "node index.js".
+
 My GITHUB : https://github.com/Nem-developing
 
 Ce code est distribué avec bonté, si vous prenner une parite / même minime du code ici présent, veuillez, affin d'assurer une hygiène de développement, mentionné le nom du créateur.
