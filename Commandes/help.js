@@ -3,7 +3,6 @@ const Discord = require('discord.js'); // Import de la bibliothéque "discord.js
 module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
 
-    message.channel.bulkDelete(1);
     message.channel.send({
         embed: {
             color: 3447003,
