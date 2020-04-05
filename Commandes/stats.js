@@ -1,4 +1,4 @@
-const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const Discord = require('discord.js'); // Import de la bibliothèque "discord.js".
 const moment = require('moment');
 
 
@@ -9,7 +9,7 @@ module.exports.run = (client, message, args) => {
     message.channel.send({
         embed: {
             color: 3447003,
-            title: `Statistiques du l'utilisateur **${membre.user.username}**`,
+            title: `Statistiques de l'utilisateur **${membre.user.username}**`,
             thumbnail: {
                 url: membre.user.displayAvatarURL
             },
