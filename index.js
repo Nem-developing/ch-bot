@@ -1,9 +1,9 @@
-const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const Discord = require('discord.js'); // Import de la bibliothèque "discord.js".
 const client = new Discord.Client()  // Création de la variable client.
-const token = require("./token.json");  // Ici on cache le token dans le fichier token.json du répértoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
+const token = require("./token.json");  // Ici on cache le token dans le fichier token.json du répertoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
 const badlist = require("./badlist.json")  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
 client.commands = new Discord.Collection();  // Création de la variable commande.
-const fs = require('fs');  // Import de la bibliothéque "FS".
+const fs = require('fs');  // Import de la bibliothèque "FS".
 
 // Chargement des différentes commandes du fichier /Commandes
 
@@ -40,11 +40,11 @@ client.on('guildMemberAdd', member => {
 });
 
 
-// Actions suite à une commande précise dans le chat
+// Actions suite à une commande précise dans le tchat
 
 client.on("message", (message) => {
     if (message.content.startsWith("<@!430395704268161025>")) { // Ici c'est l'identifiant du bot @CH-FR => Actions après son appel en mention.
-        message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
+        message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch fr`.");
     }
     if (message.content.startsWith("Chrétien-Fr")) {
       message.channel.send("Pourquoi parles-tu du meilleur bot de l'univers ? (je suis objectif, promis !)");
@@ -74,7 +74,7 @@ client.on("message", (message) => {
 	
   });
 
-// Actions après un message suprimé vers le serveur.
+// Actions après un message supprimé vers le serveur.
 
 client.on('messageDelete', message => {
     console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
@@ -119,7 +119,7 @@ client.on("message", msg => {
     let wordArray = msg.content.split("  ");
     console.log(wordArray);
 
-    let filterWords = (badlist.liste) // Ici j'ai placé la liste dans un fichier appart, cela permet de rendre le code plus propre et sans grot mots d'ailleurs.
+    let filterWords = (badlist.liste) // Ici j'ai placé la liste dans un fichier à part, cela permet de rendre le code plus propre et sans gros mots d'ailleurs.
     for (var i = 0; i < filterWords.length; i++) {
         if (wordArray.includes(filterWords[i])) {
             msg.delete();
