@@ -127,7 +127,6 @@ client.on("message", msg => {
                 `Désolé ${
                 msg.author.username
                 }, Vous n'utilisez pas un language correct...`).then(msg => msg.delete(5000));
-            msg.channel.send(`!ch warn ${msg.author} Propos Obscènes`)
         }
     }
 })
