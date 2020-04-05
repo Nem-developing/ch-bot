@@ -13,7 +13,7 @@ Node Package Manager's installation :
 - npm i superagent
 - npm i fs
 - npm i moment
-- npm i node-fetch
+- npm i request
 
 N'oubliez pas la modification du fichier "token.json".
 
