@@ -14,6 +14,7 @@ Node Package Manager's installation :
 - npm i fs
 - npm i moment
 - npm i request
+- npm i unirest
 
 N'oubliez pas la modification du fichier "token.json".
 
