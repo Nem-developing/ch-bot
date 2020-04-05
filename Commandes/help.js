@@ -27,6 +27,10 @@ module.exports.run = (client, message, args) => {
                 value: "Vous permet de faire un rapport au staf suite au mauvais comportement d'autres usagers du serveur."
             },
             {
+                name: "`!ch def [mot]`",
+                value: "Affiche la définition du mot spécifié."
+            },
+            {
                 name: "`ALEA`",
                 value: "Affiche un verset biblique aléatoirement (Via @BibleBot#1110 créé par Elliott Pardee)."
             },
