@@ -1,4 +1,4 @@
-CH-BOT MADE BY Nem-developing
+                                            **CH-BOT MADE BY Nem-developing**
 
 ## Informations : 
 - Ce code est celui du bot dédié au serveur Chrétiens-FR
