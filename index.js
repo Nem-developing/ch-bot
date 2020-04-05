@@ -1,7 +1,7 @@
 const Discord = require('discord.js'); // Import de la bibliothèque "discord.js".
 const client = new Discord.Client()  // Création de la variable client.
-const token = require("./token.json");  // Ici on cache le token dans le fichier token.json du répertoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
-const badlist = require("./badlist.json")  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
+const token = require("./jsons/token.json");  // Ici on cache le token dans le fichier token.json du répertoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
+const badlist = require("./jsons/badlist.json")  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
 client.commands = new Discord.Collection();  // Création de la variable commande.
 const fs = require('fs');  // Import de la bibliothèque "FS".
 
