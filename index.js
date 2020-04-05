@@ -137,25 +137,24 @@ client.login(token.token);
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                     //
-//                                                                                                     //
-// Jouez franc-jeux quand vous utilisez et/ou modifiez le code d'un autre.                             //
-// Même si le code est rendu public sous la licence ISC.                                               //
-// Cela relève de l'hygiène de developpement de spécifier les créateurs du code original               //
-//                                                                                                     //
-//                                                                                                     //
-//                                                                                                     //
-// Notez cette information pour tout les autres possibles codes que vous récupérez sur GitHub          //
-//                                                                                                     //
-// --> Spécifiez le nom / pseudo du créateur : nem-developing                                          //
-// --> Lien vers son GitHub : https://github.com/nem-developing                                        //
-//                                                                                                     //
-// (info) Je dit ceci dans le cadre du developement et du partage du code du bot CH-FR cependant       //
-// cela relève de la morale, ne faites pas ceci simplement pour moi mais pour tout les autres          //
-// projets que vous réalisez en utilisant le code de quelqu'un d'autre . (info)                        //
-//                                                                                                     //
-//                                                                                                     //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// 											            //
+// Jouez franc-jeux quand vous utilisez et/ou modifiez le code d'un autre.                          //
+// Même si le code est rendu public sous la lisence ISC.                                            //
+// Cela relève de l'hygiène de développement de spécifier les créateurs d'un code original.         //
+//                                                                                                  //
+//                                                                                                  //
+//                                                                                                  //
+// Tennez en bonnes notes pour tout code récupéré sur mon GitHub                                    //
+//                                                                                                  //
+// --> Spécifiez le nom / pseudo                                                                    //
+// --> Lien vers son GitHub : https://github.com/nem-developing                                     //
+//                                                                                                  //
+// (info) Je dis ceci dans le cadre du dévelopement et du partage du code du bot CH-FR              //
+// cependant cela relève de la morale, ne faites pas ceci simplement pour moi mais pour             //
+// tous les autres projets que vous réalisez en utilisant le code de quelqu'un d'autre.             //
+//                                                                                                  //
+//                                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                _______      _____________                 __           _______                       _______                    _________     _________     _________                  ____      //
 //  |\      |    |            |      |      |               |   \        |           \            /    |           |              |         |   |         |        |      |\      |      /          //
