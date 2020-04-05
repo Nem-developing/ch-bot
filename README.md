@@ -16,7 +16,7 @@ Node Package Manager's installation :
 - npm i request
 - npm i unirest
 
-N'oubliez pas la modification du fichier "token.json".
+N'oubliez pas la modification des fichier json dans le dossier /jsons.
 
 Pour démarrer le bot : "node index.js".
 
