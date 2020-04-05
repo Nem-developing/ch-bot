@@ -62,14 +62,6 @@ module.exports.run = (client, message, args) => {
             });
 
 
-
-
-
-
-
-
-
-
 		} catch (error) {
 			console.error(res.error);
 			message.channel.send(`Le mot est inconue du dico.`)
