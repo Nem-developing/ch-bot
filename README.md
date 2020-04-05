@@ -1,14 +1,14 @@
 CH-BOT MADE BY Nem-developing
 
-##Informations : 
+## Informations : 
 - Ce code est celui du bot dédié au serveur Chrétiens-FR
-###Rejoins-nous : https://discord.gg/AhQS2ff
+### Rejoins-nous : https://discord.gg/AhQS2ff
 
-##Prerequisits : 
+## Prerequisits : 
 - node.js : https://nodejs.org/en/
 
 
-##Node Package Manager's installation : 
+## Node Package Manager's installation : 
 - npm i discord.js
 - npm i superagent
 - npm i fs
