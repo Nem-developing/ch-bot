@@ -52,11 +52,3 @@ module.exports.run = (client, message, args) => {
 module.exports.help = {
     name: 'help'
 };
-
-module.exports.help = {
-    name: 'h'
-};
-
-module.exports.help = {
-    name: '?'
-};
