@@ -102,7 +102,3 @@ module.exports.help = {
     name: 'def'
 };
 
-module.exports.help = {
-
-    name: 'definition'
-};
