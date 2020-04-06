@@ -17,9 +17,9 @@ fs.readdir('./Commandes/', (error, f) => {
             let commande = require(`./Commandes/${f}`);
             console.log(`${f} commande chargée !`);
             client.commands.set(commande.help.name, commande);
-        });
-	commande.conf.aliases.forEach(alias => { // It could be that the command has aliases, so we go through them too
+    commande.conf.aliases.forEach(alias => { // It could be that the command has aliases, so we go through them too
         client.aliases.set(alias, commande.help.name); // If we find one, we add it to the client.aliases Collection
+});
 });
 });
 
