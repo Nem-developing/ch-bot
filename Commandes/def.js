@@ -38,15 +38,15 @@ module.exports.run = (client, message, args) => {
                     },
                     {
                         name: "**${res.body[0].source}** :",
-                        value: `    ${res.body[0].definition}`
+                        value: `${res.body[0].definition}`
                     },
                     {
                         name: "**${res.body[1].source}** :",
-                        value: `    ${res.body[1].definition}`
+                        value: `${res.body[1].definition}`
                     },
                     {
                         name: "**${res.body[2].source}** :",
-                        value: `    ${res.body[2].definition}`
+                        value: `${res.body[2].definition}`
                     }
                     ],
                     timestamp: new Date(),
