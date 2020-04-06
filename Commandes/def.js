@@ -37,15 +37,15 @@ module.exports.run = (client, message, args) => {
                             value: `__${res.body[0].nature}__`
                     },
                     {
-                        name: "**${res.body[0].source}** :",
+                        name: `**${res.body[0].source}** :`,
                         value: `${res.body[0].definition}`
                     },
                     {
-                        name: "**${res.body[1].source}** :",
+                        name: `**${res.body[1].source}** :`,
                         value: `${res.body[1].definition}`
                     },
                     {
-                        name: "**${res.body[2].source}** :",
+                        name: `**${res.body[2].source}** :`,
                         value: `${res.body[2].definition}`
                     }
                     ],
