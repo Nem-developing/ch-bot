@@ -28,29 +28,24 @@ module.exports.run = (client, message, args) => {
                 embed: {
                     color: 3447003,
                     author: {
-                        name: client.user.username,
-                        icon_url: client.user.avatarURL
+                        name: client.user.username
                     },
-                    title: `Deffinition de ${args[0]}`,
+                    title: `Deffinition de __${args[0]}__ :`,
                     description: `Voici les differentes déffinitions du mot ${args[0]} :`,
                     fields: [{
-                        name: "Dictionnaire employé :",
-                        value: `**${res.body[0].source}**`
-                    },
-                    {
                             name: "Nature :",
                             value: `__${res.body[0].nature}__`
                     },
                     {
-                        name: "Signification 1 :",
+                        name: "**${res.body[0].source}** :",
                         value: `    ${res.body[0].definition}`
                     },
                     {
-                        name: "Signification 2 :",
+                        name: "**${res.body[1].source}** :",
                         value: `    ${res.body[1].definition}`
                     },
                     {
-                        name: "Signification 3 :",
+                        name: "**${res.body[2].source}** :",
                         value: `    ${res.body[2].definition}`
                     }
                     ],
