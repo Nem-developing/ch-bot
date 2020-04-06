@@ -102,3 +102,6 @@ module.exports.help = {
     name: 'def'
 };
 
+module.exports.conf = {
+aliases: ["definition","definitions"]
+}
