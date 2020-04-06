@@ -10,4 +10,6 @@ module.exports.help = {
     name: 'ping'
 };
 
-
+module.exports.conf = {
+    aliases: ["pong"]
+};
