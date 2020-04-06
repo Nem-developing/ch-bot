@@ -101,7 +101,3 @@ module.exports.run = (client, message, args) => {
 module.exports.help = {
     name: 'def'
 };
-
-module.exports.conf = {
-aliases: ["definition","definitions"]
-}
