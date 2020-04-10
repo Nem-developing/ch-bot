@@ -4,10 +4,32 @@ const dico = require("../jsons/dictionnaire.json")  // Consulter https://rapidap
  
 module.exports.run = (client, message, args) => {
     if (!args[0]) {
-        return message.channel.send("Veuillez spécifier un mot à définir !\n\n Utilisation : `!ch def [mot_à_deffinir]`"); }
+        return message.channel.send("Veuillez spécifier un mot à définir !\n\n Utilisation : `!ch def [mot_à_deffinir]`");
+    }
+    if (args[3]) {
+        return message.channel.send("Merci d'utiliser au maximum 3 arguments : `!ch def [mot_à_deffinir]`");
+    }
 
 
-	var req = unirest("GET", `https://dicolink.p.rapidapi.com/mot/${args[0]}/definitions?limite=4`);
+    let motrecherche = args[0];
+    let displayword = args[0];
+
+    if (!args[1]) {
+    } else {
+        motrecherche = args[0] + "%2520" + args[1]
+        displayword = args[0] + " " + args[1]
+    }
+    if (!args[2]) {
+    } else {
+        motrecherche = args[0] + "%2520" + args[1] + "%2520" + args[2]
+        displayword = args[0] + " " + args[1] + " " + args[2]
+    }
+    let link = "";
+    link = "https://dicolink.p.rapidapi.com/mot/" + motrecherche + "/definitions?limite=4"
+
+
+
+    var req = unirest("GET", link);
 
 	req.headers({
 		"x-rapidapi-host": "dicolink.p.rapidapi.com",
