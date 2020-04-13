@@ -37,6 +37,7 @@ fs.readdir('./Events/', (error, f) => {
 
 client.on('guildMemberAdd', member => {
     member.send("__**Bienvenue à toi sur le serveur Chrétiens-FR !**__ \n\nL'équipe du staff de **CH-FR** te souhaite de passer de très bons moments !\nTu peux et dès ton arrivée, lire & accepter le **#règlement** afin d'accéder au serveur. \n\nDès ton arrivée parmi nous tu pourras accéder au salon **#rôles** qui va te permettre de sélectionner ta branche du christianisme mais également de te donner le rôle de Baptisé ou non. \n\n**Le staff de Chrétiens-FR** te souhaite de passer une très bonne aventure parmi les membres du serveur et d'y faire de très belles rencontres. \n\n\nL'équipe d'administration ♥.");
+    client.channels.cache.get("682716557176340682").send(`**L'utilisateur ${member} à reçus un message de bienvenue !**`)
 });
 
 
