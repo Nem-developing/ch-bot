@@ -40,6 +40,10 @@ client.on('guildMemberAdd', member => {
     client.channels.cache.get("682716557176340682").send(`**L'utilisateur ${member} à reçus un message de bienvenue !**`)
 });
 
+// Channel crée
+client.on("channelCreate", function (channel) {
+    client.channels.cache.get("682716557176340682").send(`**Le salon ${channel} à été créé !**`)
+});
 
 // Actions suite à une commande précise dans le tchat
 
