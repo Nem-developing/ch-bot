@@ -50,6 +50,45 @@ client.on("channelDelete", function (channel) {
     client.channels.cache.get("682716557176340682").send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`)
 });
 
+
+// Channel mis à jour
+client.on("channelUpdate", function (oldChannel, newChannel) {
+    let topic = ""
+
+    if (!newChannel.topic) {
+        topic = "Channel sans topic."
+    } else {
+        topic = newChannel.topic
+    }
+
+
+
+    client.channels.cache.get("682716557176340682").send({
+        embed: {
+            color: 3447003,
+            author: {
+                name: client.user.username,
+            },
+            title: "Channel mis à jour !",
+            url: "",
+            fields: [{
+                name: "`Nouveau nom :`",
+                value: `${newChannel}`
+            },
+            {
+                name: "`Nouveau topic :`",
+                value: topic
+            }],
+            timestamp: new Date(),
+            footer: {
+                text: "© Chrétiens-FR - UPDATED CHANNEL !"
+            }
+        }
+
+    })
+});
+
+
 // Actions suite à une commande précise dans le tchat
 
 client.on("message", (message) => {
