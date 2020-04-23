@@ -50,6 +50,13 @@ client.on("channelDelete", function (channel) {
     client.channels.cache.get("682716557176340682").send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`)
 });
 
+// Debug
+client.on("debug", function(info){
+    client.channels.cache.get("682716557176340682").send(`**Debug** --> ${info}`)
+    console.log();
+});
+
+
 
 // Channel mis à jour
 client.on("channelUpdate", function (oldChannel, newChannel) {
