@@ -53,7 +53,6 @@ client.on("channelDelete", function (channel) {
 // Debug
 client.on("debug", function(info){
     client.channels.cache.get("682716557176340682").send(`**Debug** --> ${info}`)
-    console.log();
 });
 
 
