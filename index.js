@@ -93,7 +93,7 @@ client.on("message", (message) => {
 	
 	
   });
-
+	});
 // Actions après un message supprimé vers le serveur.
 
 client.on('messageDelete', message => {
