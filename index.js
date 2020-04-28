@@ -60,34 +60,6 @@ client.on("channelUpdate", function (oldChannel, newChannel) {
         topic = newChannel.topic
     }
 
-
-
-    client.channels.cache.get("682716557176340682").send({
-        embed: {
-            color: 3447003,
-            author: {
-                name: client.user.username,
-            },
-            title: "Channel mis à jour !",
-            url: "",
-            fields: [{
-                name: "`Nouveau nom :`",
-                value: `${newChannel}`
-            },
-            {
-                name: "`Nouveau topic :`",
-                value: topic
-            }],
-            timestamp: new Date(),
-            footer: {
-                text: "© Chrétiens-FR - UPDATED CHANNEL !"
-            }
-        }
-
-    })
-});
-
-
 // Actions suite à une commande précise dans le tchat
 
 client.on("message", (message) => {
