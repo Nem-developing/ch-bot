@@ -54,7 +54,7 @@ module.exports.run = (client, message, args) => {
                    })
                })
              .catch(function(){
-                 message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé`);
+                 message.author.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé`);
                  erreur = 1
              });
          })
