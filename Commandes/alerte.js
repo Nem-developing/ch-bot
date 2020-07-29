@@ -59,7 +59,7 @@ module.exports.run = (client, message, args) => {
              });
          })
     if (erreur === 0) {
-        client.send('L\'avertissement à bien été envoyé !')
+        client.send.message('L\'avertissement à bien été envoyé !')
     }
 };
 
