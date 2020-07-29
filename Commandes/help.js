@@ -29,14 +29,6 @@ module.exports.run = (client, message, args) => {
                 name: "`!ch def [mot]`",
                 value: "Affiche la définition du mot spécifié."
             },
-            {
-                name: "`ALEA`",
-                value: "Affiche un verset biblique aléatoirement (Via @BibleBot#1110 créé par Elliott Pardee)."
-            },
-            {
-                name: "`valea`",
-                value: "Affiche un verset biblique aléatoirement (Via @BibleBot#1110 créé par Elliott Pardee)."
-            },
 
             ],
             timestamp: new Date(),
