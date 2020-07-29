@@ -10,7 +10,6 @@ module.exports.run = (client, message, args) => {
 
 
     let mentioned = message.mentions.users.first();	
-    let erreur = 0;
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
          .then(function(){
@@ -58,9 +57,6 @@ module.exports.run = (client, message, args) => {
                  erreur = 1
              });
          })
-    if (erreur === 0) {
-        message.author.send('L\'avertissement à bien été envoyé !')
-    }
 };
 
 
