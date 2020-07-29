@@ -54,12 +54,12 @@ module.exports.run = (client, message, args) => {
                    })
                })
              .catch(function(){
-                 message.author.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé`);
+                 message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé`);
                  erreur = 1
              });
          })
     if (erreur === 0) {
-        client.send.message('L\'avertissement à bien été envoyé !')
+        message.author.send('L\'avertissement à bien été envoyé !')
     }
 };
 
