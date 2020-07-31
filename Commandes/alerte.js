@@ -10,6 +10,7 @@ module.exports.run = (client, message, args) => {
 
 
     let mentioned = message.mentions.users.first();	
+    let erreur = 0;
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
          .then(function(){
@@ -51,10 +52,10 @@ module.exports.run = (client, message, args) => {
                        }
 
                    })
+                   message.channel.send(`Le message : "_${collected.first().content}_" a bien été envoyé à ${args[0]} !`);
                })
              .catch(function(){
-                 message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé`);
-                 erreur = 1
+                 message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
              });
          })
 };
