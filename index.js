@@ -42,7 +42,7 @@ client.on('guildMemberAdd', member => {
 
 // Channels créés
 client.on("channelCreate", function (user) {
-    client.channels.cache.get("682716557176340682").send(`**Un message privé à été envoyé à : ${user} !**`)
+    client.channels.cache.get("682716557176340682").send(`**Un message privé à été envoyé à ${user} !**`)
 });
 
 // Channels supprimées
