@@ -40,6 +40,11 @@ client.on('guildMemberAdd', member => {
     client.channels.cache.get("682716557176340682").send(`**L'utilisateur ${member} à reçus un message de bienvenue !**`)
 });
 
+// Channels créés
+client.on("channelCreate", function (user) {
+    client.channels.cache.get("682716557176340682").send(`**Un message privé à été envoyé à : ${user} !**`)
+});
+
 // Channels supprimées
 client.on("channelDelete", function (channel) {
     client.channels.cache.get("682716557176340682").send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`)
