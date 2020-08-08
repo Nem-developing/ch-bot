@@ -27,8 +27,7 @@ module.exports.run = (client, message, args) => {
                                name: client.user.username,
                                icon_url: client.user.avatarURL
                            },
-                           title: "VOUS AVEZ REÇU UN 
-                           SSEMENT - Chrétiens-FR",
+                           title: "VOUS AVEZ REÇU UN AVERTISSEMENT - Chrétiens-FR",
                            url: "",
                            description: "Un membre de l'équipe d'administration du serveur Chrétiens-Fr vous donne un avertissement. Ci-dessous vous trouverez la raison de votre avertissement !",
                            fields: [{
