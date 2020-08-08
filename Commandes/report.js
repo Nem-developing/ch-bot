@@ -31,7 +31,7 @@ module.exports.run = (client, message, args) => {
                 
                      
                 // Envoie du raport au staff.
-            client.channels.cache.get("695970749806149722").send(`Le membre ${message.author} vous rapporte les faits suivant consernant l'utilisateur ${args[0]} :\n\n**${collected.first().content}**`);
+            client.channels.cache.get("658348418816540723").send(`Le membre ${message.author} vous rapporte les faits suivant consernant l'utilisateur ${args[0]} :\n\n**${collected.first().content}**`);
 
                     
 
