@@ -27,16 +27,17 @@ module.exports.run = (client, message, args) => {
                                name: client.user.username,
                                icon_url: client.user.avatarURL
                            },
-                           title: "VOUS AVEZ REÇUS UN AVERTISSEMENT - Chrétiens-FR",
+                           title: "VOUS AVEZ REÇU UN 
+                           SSEMENT - Chrétiens-FR",
                            url: "",
                            description: "Un membre de l'équipe d'administration du serveur Chrétiens-Fr vous donne un avertissement. Ci-dessous vous trouverez la raison de votre avertissement !",
                            fields: [{
-                               name: "**Raison de l'avetissement :**",
+                               name: "**Raison de l'avertissement :**",
                                value: `__*${collected.first().content}*__\n\n    `
                            },
                            {
                                name: "**Informations supplémentaires !**",
-                               value: "Vous avez le droit à un maximum de trois avertissement, nous pouvons également décider de vous banir directement sans prendre en compte votre seuil d'avertissement si nous considérons que vous avez trop enfreint le réglement."
+                               value: "Vous avez le droit à un maximum de trois avertissements, nous pouvons également décider de vous bannir directement sans prendre en compte votre seuil d'avertissement si nous considérons que vous avez trop enfreint le réglement."
                            },
                            {
                                name: "**Qu'est-ce qu'il se passe maintenant ?**",
