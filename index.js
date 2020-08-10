@@ -4,6 +4,7 @@ const token = require("./jsons/token.json");  // Ici on cache le token dans le f
 const badlist = require("./jsons/badlist.json")  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
 client.commands = new Discord.Collection();  // Création de la variable commande.
 const fs = require('fs');  // Import de la bibliothèque "FS".
+const bd = require("./jsons/bd.json");  // Création de l'objet nous permetant de stocker le nombre de messages envoyées.
 
 // Chargement des différentes commandes du fichier /Commandes
 
@@ -149,7 +150,45 @@ client.on("message", msg => {
                 }, Vous n'utilisez pas un language correct...`).then(msg => msg.delete(5000));
         }
     }
+    // On incrémente la valeur.
+    bd.messages = bd.messages + 1
+
+
+
+    let messagesstats =
+        {
+        "messages": bd.messages + 1
+        }
+    
+
+    let donnees = JSON.stringify(messagesstats)
+    fs.writeFileSync('./jsons/bd.json', donnees)
 })
+
+// Boucle permetant d'envoyer un message à une heure précise.
+setInterval(function () {
+    var date = new Date();
+    var heure = date.getHours();
+    var minutes = date.getMinutes();
+
+    // A 23h59 il y a un message consernant le nombre de messages qui ont été envoyées sur le serveur.
+    if (heure === 23 && minutes === 59) {
+        client.channels.cache.get("742420195666165781").send(`⭐ Il y a eu **${bd.messages}** messages envoyés sur le serveur aujourd'hui ⭐`)
+
+        let messagesstats =
+        {
+            "messages": 0
+        }
+
+
+        let donnees = JSON.stringify(messagesstats)
+        fs.writeFileSync('./jsons/bd.json', donnees)
+
+
+    }
+
+}, 60000);
+
 
 client.login(token.token);
 
