@@ -18,12 +18,12 @@ module.exports.run = (client, message, args) => {
                 value: "Vous affiche l'aide du bot."
             },
             {
-                name: "`!ch stats`",
+                name: "`!ch stats <@membre>`",
                 value: "Affiche les statistiques d'un membre du serveur."
             },
             {
-                name: "`!ch report`",
-                value: "Vous permet de faire un rapport au staf suite au mauvais comportement d'autres usagers du serveur."
+                name: "`!ch report <@membre>`",
+                value: "Vous permet de faire un rapport au staf suite au mauvais comportement d'autres usagers du serveur. Vous receverez un message privé. Vous n'aurez plus qu'a répondre à ce message avec la raison du report. (Prenez gardes à ne pas report sans raison valable. Si le staff se rend compte que vous raportez à tord, vous serez sanctionées !)"
             },
             {
                 name: "`!ch def [mot]`",
