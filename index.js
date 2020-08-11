@@ -150,14 +150,14 @@ client.on("message", msg => {
                 }, Vous n'utilisez pas un language correct...`).then(msg => msg.delete(5000));
         }
     }
+    
     // On incrémente la valeur.
     bd.messages = bd.messages + 1
 
 
-
     let messagesstats =
         {
-        "messages": bd.messages + 1
+        "messages": bd.messages
         }
     
 
@@ -183,7 +183,7 @@ setInterval(function () {
 
         let donnees = JSON.stringify(messagesstats)
         fs.writeFileSync('./jsons/bd.json', donnees)
-
+        bd.messages = 0
 
     }
 
