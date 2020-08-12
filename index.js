@@ -186,6 +186,45 @@ setInterval(function () {
         bd.messages = 0
 
     }
+	
+    
+    // Si c'est la nuit
+    if (heure === 00 && minutes === 00) {
+
+        let channel1 = client.channels.cache.get('742803386793197637');
+        let channel2 = client.channels.cache.get('564897331913162802');
+
+
+
+        // On affiche la vue pour les nouveaux du salon "Ouverture-Fermeture".
+        channel1.updateOverwrite(channel1.guild.roles.everyone, { VIEW_CHANNEL: true });
+
+        // On retire la vue du règlement pour les nouveaux.
+        channel2.updateOverwrite(channel2.guild.roles.everyone, { VIEW_CHANNEL: false });
+
+        // On notifie le staff du changement
+        client.channels.cache.get("695970749806149722").send("Le serveur est désormais **fermé** pour les __nouveaux__ !")
+
+
+    }
+
+    // Si c'est le jour
+    if (heure === 07 && minutes === 00) {
+
+        let channel1 = client.channels.cache.get('742803386793197637');
+        let channel2 = client.channels.cache.get('564897331913162802');
+
+        // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
+        channel1.updateOverwrite(channel1.guild.roles.everyone, { VIEW_CHANNEL: false });
+
+        // On affiche le règlement pour les nouveaux.
+        channel2.updateOverwrite(channel2.guild.roles.everyone, { VIEW_CHANNEL: true });
+
+        // On notifie le staff du changement
+        client.channels.cache.get("695970749806149722").send("Le serveur est désormais **ouvert* pour les __nouveaux__ !")
+
+    }
+
 
 }, 60000);
 
