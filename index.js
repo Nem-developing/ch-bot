@@ -51,16 +51,6 @@ client.on("channelDelete", function (channel) {
     client.channels.cache.get("682716557176340682").send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`)
 });
 
-// Channel mis à jour
-client.on("channelUpdate", function (oldChannel, newChannel) {
-    let topic = ""
-
-    if (!newChannel.topic) {
-        topic = "Channel sans topic."
-    } else {
-        topic = newChannel.topic
-    }
-
 // Actions suite à une commande précise dans le tchat
 
 client.on("message", (message) => {
@@ -94,7 +84,6 @@ client.on("message", (message) => {
 	
 	
   });
-	});
 // Actions après un message supprimé vers le serveur.
 
 client.on('messageDelete', message => {
@@ -221,7 +210,7 @@ setInterval(function () {
         channel2.updateOverwrite(channel2.guild.roles.everyone, { VIEW_CHANNEL: true });
 
         // On notifie le staff du changement
-        client.channels.cache.get("695970749806149722").send("Le serveur est désormais **ouvert* pour les __nouveaux__ !")
+        client.channels.cache.get("695970749806149722").send("Le serveur est désormais **ouvert** pour les __nouveaux__ !")
 
     }
 
