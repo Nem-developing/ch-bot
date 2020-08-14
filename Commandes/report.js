@@ -16,7 +16,7 @@ module.exports.run = (client, message, args) => {
     
     
     // Information publique
-    message.channel.send(`Nous vous invitons à consulter vos messages privés pour continuer votre rapport concernant : ${args[0]}.`)
+    message.channel.send(`Nous vous invitons à consulter vos messages privés pour continuer la procédure...`)
 
    
 
