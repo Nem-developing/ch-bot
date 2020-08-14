@@ -11,7 +11,10 @@ module.exports.run = (client, message, args) => {
     if (!mentioned) {
         return message.channel.send("Vous devez __**mentioner**__ l'utilisateur à report !\n\n Utilisation : `!ch report [@membre_à_report]`");
     }
-
+    // On supprime le message envoyée.
+    message.delete()
+    
+    
     // Information publique
     message.channel.send(`Nous vous invitons à consulter vos messages privés pour continuer votre rapport concernant : ${args[0]}.`)
 
