@@ -188,8 +188,8 @@ setInterval(function () {
     }
 	
     
-    // Si c'est la nuit
-    if (heure === 00 && minutes === 00) {
+    // Si c'est le début de soiré.
+    if (heure === 20 && minutes === 00) {
 
         let channel1 = client.channels.cache.get('742803386793197637');
         let channel2 = client.channels.cache.get('564897331913162802');
