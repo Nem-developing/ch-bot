@@ -58,31 +58,26 @@ client.on("message", (message) => {
         message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
     }
     if (message.content.startsWith("Chrétien-Fr")) {
-      message.channel.send("Pourquoi parles-tu du meilleur bot de l'univers ? (je suis objectif, promis !)");
+        message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
     }
     if (message.content.startsWith("chrétien-Fr")) {
-        message.channel.send("Pourquoi parles-tu du meilleur bot de l'univers ? (je suis objectif, promis !)");
+        message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
     }
     if (message.content.startsWith("Ch-Fr")) {
-      message.channel.send("Pourquoi parles-tu du meilleur bot de l'univers ? (je suis objectif, promis !)");
+        message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
     }
     if (message.content.startsWith("ch-fr")) {
-      message.channel.send("Pourquoi parles-tu du meilleur bot de l'univers ? (je suis objectif, promis !)");
+        message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
     } 
     if (message.content.startsWith("WHO MADE CH-FR ?")){
-     message.channel.send("@Nem#2318 made me.");
+      message.channel.send("<@!179640392432615425> m'a fait.");
     }
     if (message.content.startsWith("valea")){
      message.channel.bulkDelete(1);
      message.channel.send("+random").then(msg => msg.delete(1000));    }
     if (message.content.startsWith("ALEA")){
      message.channel.bulkDelete(1);
-     message.channel.send("+random").then(msg => msg.delete(1000));    }
-
-    
-	
-	
-	
+     message.channel.send("+random").then(msg => msg.delete(1000));    }	
   });
 // Actions après un message supprimé vers le serveur.
 
