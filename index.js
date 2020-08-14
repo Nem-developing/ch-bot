@@ -72,12 +72,7 @@ client.on("message", (message) => {
     if (message.content.startsWith("WHO MADE CH-FR ?")){
       message.channel.send("<@!179640392432615425> m'a fait.");
     }
-    if (message.content.startsWith("valea")){
-     message.channel.bulkDelete(1);
-     message.channel.send("+random").then(msg => msg.delete(1000));    }
-    if (message.content.startsWith("ALEA")){
-     message.channel.bulkDelete(1);
-     message.channel.send("+random").then(msg => msg.delete(1000));    }	
+   	
   });
 // Actions après un message supprimé vers le serveur.
 
