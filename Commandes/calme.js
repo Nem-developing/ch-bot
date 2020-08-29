@@ -29,7 +29,7 @@ module.exports.run = (client, message, args) => {
                 errors: ['time'],
             })
         .then((collected) => {
-            
+            /*
                 // Si l'utilisateur envoyait deux fois d'affilées la même commande, alors, il y avait une boucle infinie de message
                 // Cette condition corrige cette erreur (et l'explique aux utilisateurs pour ne pas qui répète l'erreur)
                 if ( message.author == "<@430395704268161025>"){
@@ -38,7 +38,7 @@ module.exports.run = (client, message, args) => {
                     // On stop la boucle en indiquant l'erreur.
                     return message.channel.send("**:warning: :warning: :warning: :warning: ATENTION :warning: :warning: :warning: :warning: \n\n\nUn problème est survenue ! (N'oubliez pas de bien dire stop si vous ne poursuivez pas l'opération de mise au calme ! Cette erreur apparait car le bot se répond à lui-même, pour faire simple, il atendait une réponse de votre part, et en relanceant une autre fois la même commande, le bot serait en boucle perpetuelle, donc faites très atention la prochaine fois :heart: !**)**"); 
                 }
-            
+            */
            
                 
                 if (collected.first().content == 1) {
