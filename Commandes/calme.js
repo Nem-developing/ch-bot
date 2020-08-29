@@ -25,7 +25,7 @@ module.exports.run = (client, message, args) => {
             .then(function () {
             message.channel.awaitMessages(response => message.content, {
                 max: 1,
-                time: 300000000,
+                time: 10000,
                 errors: ['time'],
             })
         .then((collected) => {
