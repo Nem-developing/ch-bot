@@ -32,7 +32,7 @@ module.exports.run = (client, message, args) => {
             
                 // Si l'utilisateur envoyait deux fois d'affilées la même commande, alors, il y avait une boucle infinie de message
                 // Cette condition corrige cette erreur (et l'explique aux utilisateurs pour ne pas qui répète l'erreur)
-                if ( message.author === "<@430395704268161025>"){
+                if ( message.author == "<@430395704268161025>"){
                     // On supprime le méssage précédent.
                     message.channel.bulkDelete(1)
                     // On stop la boucle en indiquant l'erreur.
