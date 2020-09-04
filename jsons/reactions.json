@@ -1,0 +1,95 @@
+{
+    "reactionRole": {
+        "703584775444889610": {
+            "emojis": [{
+                "id": "615252243893059614",
+                "roles": "615260431975448579",
+                "nom" : "Adhérent"
+            }]
+        },
+        "597942896066560011": {
+            "removable": true,
+            "emojis": [{
+                "name": "🤽",
+                "roles": "597947411213844483",
+                "nom" : "Baptisté d'eau"
+            }, {
+                "name": "👐",
+                "roles": "711082555474051142",
+                "nom" : "Baptisé du Saint Esprit"
+            }, {
+                "name": "📕",
+                "roles": "597947775157665803",
+                "nom" : "Converti"
+            }, {
+                "name": "🏳️",
+                "roles": "597951202839232522",
+                "nom" : "Non converti"
+            }]
+        },
+        "602209975808557069": {
+            "removable": true,
+            "emojis": [{
+                "name": "🇦",
+                "roles": "602209669645074433",
+                "nom" : "Assemblée De Dieu"
+            }, {
+                "name": "🇲",
+                "roles": "602209753619496966",
+                "nom" : "Méthodiste"
+            }, {
+                "name": "🇧",
+                "roles": "602210135938564153",
+                "nom" : "Baptiste"
+            }, {
+                "name": "🇵",
+                "roles": "602210229274279948",
+                "nom" : "Protestant"
+            }, {
+                "name": "🇩",
+                "roles": "632430495270961162",
+                "nom" : "Pentecôtistes"
+            }, {
+                "name": "🇪",
+                "roles": "602210387194019850",
+                "nom" : "Évangélique"
+            }, {
+                "name": "🇴",
+                "roles": "608729087837601854",
+                "nom" : "Orthodoxe"
+            }, {
+                "name": "🇨",
+                "roles": "636909531045036044",
+                "nom" : "Catholique"
+            }]
+        },
+        "636911841024540682": {
+            "removable": true,
+            "emojis": [{
+                "name": "👩",
+                "roles": "636912069500862505",
+                "nom" : "Femme"
+            }, {
+                "name": "👨",
+                "roles": "636911978346053632",
+                "nom" : "Homme"
+            }, {
+                "name": "👤",
+                "roles": "636912218377682956",
+                "nom" : "Autre"
+            }]
+        },
+        "661523856095313970": {
+            "removable": true,
+            "emojis": [{
+                "name": "🧑",
+                "roles": "660910287985049612",
+                "nom" : "Majeur"
+            }, {
+                "name": "🔞",
+                "roles": "660910484488323072",
+                "nom" : "Mineur"
+            }]
+        }
+    }
+}
