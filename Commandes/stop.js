@@ -18,7 +18,7 @@ module.exports.run = (client, message, args) => {
 
 
     message.channel.send(`======================================================`)
-    message.channel.send(`**Un membre du staff vient de figer ce salon, veuillez patienter.**`)
+    message.channel.send(`**Un membre du staff vient de figer ce salon.**`)
     message.channel.send(`======================================================`)
 
 
