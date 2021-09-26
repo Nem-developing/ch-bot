@@ -1,6 +1,6 @@
 const Discord = require('discord.js'); // Import de la bibliothèque "discord.js".
 const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'], partials: ['MESSAGE', 'REACTION'] });
 const token = require("./jsons/token.json");  // Ici on cache le token dans le fichier token.json du répertoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
 const badlist = require("./jsons/badlist.json");  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
 client.commands = new Discord.Collection();  // Création de la variable commande.
@@ -12,27 +12,27 @@ const reacts = require('./jsons/reactions.json'); // On importe dans l'objet rea
 
 fs.readdir('./Commandes/', (error, f) => {
     if (error) { return console.error(error); }
-        let commandes = f.filter(f => f.split('.').pop() === 'js');
-        if (commandes.length <= 0) { return console.log('Aucune commande trouvée !'); }
+    let commandes = f.filter(f => f.split('.').pop() === 'js');
+    if (commandes.length <= 0) { return console.log('Aucune commande trouvée !'); }
 
-        commandes.forEach((f) => {
-            let commande = require(`./Commandes/${f}`);
-            console.log(`${f} commande chargée !`);
-            client.commands.set(commande.help.name, commande);
-	});
+    commandes.forEach((f) => {
+        let commande = require(`./Commandes/${f}`);
+        console.log(`${f} commande chargée !`);
+        client.commands.set(commande.help.name, commande);
+    });
 });
 
 // Chargement des différents événements du fichier /Events
 
 fs.readdir('./Events/', (error, f) => {
-    if (error) { return console.error(error); }     
-        console.log(`${f.length} events chargés`);
+    if (error) { return console.error(error); }
+    console.log(`${f.length} events chargés`);
 
-        f.forEach((f) => {
-            let events = require(`./Events/${f}`);
-            let event = f.split('.')[0];
-            client.on(event, events.bind(null, client));
-        });
+    f.forEach((f) => {
+        let events = require(`./Events/${f}`);
+        let event = f.split('.')[0];
+        client.on(event, events.bind(null, client));
+    });
 });
 
 
@@ -70,12 +70,12 @@ client.on("message", (message) => {
     }
     if (message.content.startsWith("ch-fr")) {
         message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
-    } 
-    if (message.content.startsWith("WHO MADE CH-FR ?")){
-      message.channel.send("<@!179640392432615425> m'a fait.");
     }
-   	
-  });
+    if (message.content.startsWith("WHO MADE CH-FR ?")) {
+        message.channel.send("<@!179640392432615425> m'a fait.");
+    }
+
+});
 // Actions après un message supprimé vers le serveur.
 
 client.on('messageDelete', message => {
@@ -103,8 +103,8 @@ client.on('messageDelete', message => {
                 value: new Date()
             },
             {
-                    name: "`CHANEL:`",
-                    value: `#${message.channel.name}`
+                name: "`CHANEL:`",
+                value: `#${message.channel.name}`
             }],
             timestamp: new Date(),
             footer: {
@@ -127,21 +127,20 @@ client.on("message", msg => {
         if (wordArray.includes(filterWords[i])) {
             msg.delete();
             msg.channel.send(
-                `Désolé ${
-                msg.author.username
+                `Désolé ${msg.author.username
                 }, Vous n'utilisez pas un language correct...`).then(msg => msg.delete(5000));
         }
     }
-    
+
     // On incrémente la valeur.
     bd.messages = bd.messages + 1;
 
 
     let messagesstats =
-        {
+    {
         "messages": bd.messages
-        };
-    
+    };
+
 
     let donnees = JSON.stringify(messagesstats);
     fs.writeFileSync('./jsons/bd.json', donnees);
@@ -168,8 +167,8 @@ setInterval(function () {
         bd.messages = 0;
 
     }
-	
-    
+
+
     // Si c'est le début de soiré.
     if (heure === 20 && minutes === 00) {
 
@@ -210,54 +209,73 @@ setInterval(function () {
 
 }, 60000);
 
-    
+
 // REACTIONS 
 
-client.on('messageReactionAdd', (reaction, user) => {
+client.on('messageReactionAdd', (reaction, user, member) => {
     // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot
     if (!reaction.message.guild || user.bot) return;
-    
+
     // Test sur le message (si le message fait partit des messages qui sont compris dans notre fichier json)
     const reactionRoleElem = reacts.reactionRole[reaction.message.id];
     if (!reactionRoleElem) return;
-    
+
     // Si c'est un emoji custom on utilise la propriété id, sinon name.
     const prop = reaction.emoji.id ? 'id' : 'name';
-    
+
     // Ici, c'est l'égalité entre l'émoji fait en réaction et ceux dans les fichiers jsons.
     const emoji = reactionRoleElem.emojis.find(emoji => emoji[prop] === reaction.emoji[prop]);
-    
+
     // Si l'égalité est bien exacte alors on peut bel et bien retirer le role corespondant.
     if (emoji) {
-        reaction.message.guild.member(user).roles.add(emoji.roles);
-        user.send(`**Le rôle __${emoji.nom}__ vous a été attribué !**`);
+
+
+        const role = reaction.message.guild.roles.cache.find(r => r.id === emoji.roles); // On récupère le rôle avec son ID
+
+        const { guild } = reaction.message // On stoque la guild
+
+        const member = guild.members.cache.find(member => member.id === user.id); // On recherche le membre qui a fait la réaction via son ID
+
+        member.roles.add(role);  // On ajoute le rôle au compte de l'utilisateur
+
+        member.send(`**Le rôle __${emoji.nom}__ vous a été attribué !**`);
+
+
     }
-    
+
     // Si l'émoji n'existe pas dans nos donneés, on retire la réaction.
     else reaction.users.remove(user);
 });
- 
+
 client.on('messageReactionRemove', (reaction, user) => {
     // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot.
     if (!reaction.message.guild || user.bot) return;
-    
+
     // Test sur le message (si le message fait partit des messages qui sont compris dans notre fichier json)
     const reactionRoleElem = reacts.reactionRole[reaction.message.id];
     if (!reactionRoleElem || !reactionRoleElem.removable) return;
-    
+
     // Si c'est un emoji custom on utilise la propriété id, sinon name.
     const prop = reaction.emoji.id ? 'id' : 'name';
-    
+
     // Ici, c'est l'égalité entre l'émoji fait en réaction et ceux dans les fichiers jsons.
     const emoji = reactionRoleElem.emojis.find(emoji => emoji[prop] === reaction.emoji[prop]);
-    
+
     // Si l'égalité est bien exacte alors on peut bel et bien retirer le role corespondant.
     if (emoji) {
-        reaction.message.guild.member(user).roles.remove(emoji.roles);
-        user.send(`**Le rôle __${emoji.nom}__ vous a été __retiré__ !**`);
+
+        const role = reaction.message.guild.roles.cache.find(r => r.id === emoji.roles); // On récupère le rôle avec son ID
+
+        const { guild } = reaction.message // On stoque la guild
+
+        const member = guild.members.cache.find(member => member.id === user.id); // On recherche le membre qui a fait la réaction via son ID
+
+        member.roles.remove(role);  // On retire le rôle de l'utilisateur
+
+        member.send(`**Le rôle __${emoji.nom}__ vous a été __retiré__ !**`);
     };
-}); 
-    
+});
+
 
 
 
