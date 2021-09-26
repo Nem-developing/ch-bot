@@ -15,7 +15,6 @@ __**CH-BOT MADE BY Nem-developing**__
 - npm i moment
 - npm i request
 - npm i unirest
-- npm i require
 
 **N'oubliez pas la modification des fichier json dans le dossier /jsons.**
 
