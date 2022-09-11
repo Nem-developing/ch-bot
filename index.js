@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'], partials: ['MESSAGE', 'REACTION'] });
+const client = new Discord.Client({partials: ['MESSAGE', 'REACTION']});
 client.commands = new Discord.Collection(); 
 const token = require("./jsons/token.json");  
 const badlist = require("./jsons/badlist.json");  
@@ -73,6 +73,19 @@ client.on("message", (message) => {
         message.channel.send("<@!179640392432615425> m'a fait.");
     }
 
+
+    // On incrémente la valeur.
+    bd.messages = bd.messages + 1;
+
+
+    let messagesstats =
+    {
+        "messages": bd.messages
+    };
+
+
+    let donnees = JSON.stringify(messagesstats);
+    fs.writeFileSync('./jsons/bd.json', donnees);
 });
 
 // Actions après un message supprimé vers le serveur.
@@ -114,34 +127,8 @@ client.on('messageDelete', message => {
     });
 });
 
-// Vérification de gros mots.
-client.on("message", msg => {
-    let wordArray = msg.content.split("  ");
-    console.log(wordArray);
-
-    let filterWords = (badlist.liste); // Ici j'ai placé la liste dans un fichier à part, cela permet de rendre le code plus propre et sans gros mots d'ailleurs.
-    for (var i = 0; i < filterWords.length; i++) {
-        if (wordArray.includes(filterWords[i])) {
-            msg.delete();
-            msg.channel.send(
-                `Désolé ${msg.author.username
-                }, Vous n'utilisez pas un language correct...`).then(msg => msg.delete(5000));
-        }
-    }
-
-    // On incrémente la valeur.
-    bd.messages = bd.messages + 1;
 
 
-    let messagesstats =
-    {
-        "messages": bd.messages
-    };
-
-
-    let donnees = JSON.stringify(messagesstats);
-    fs.writeFileSync('./jsons/bd.json', donnees);
-});
 
 // Boucle permetant d'envoyer un message à une heure précise.
 setInterval(function () {
