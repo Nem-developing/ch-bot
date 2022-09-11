@@ -1,15 +1,16 @@
-const Discord = require('discord.js'); // Import de la bibliothèque "discord.js".
+const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
+client.commands = new Discord.Collection(); 
 const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'], partials: ['MESSAGE', 'REACTION'] });
-const token = require("./jsons/token.json");  // Ici on cache le token dans le fichier token.json du répertoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
-const badlist = require("./jsons/badlist.json");  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
-client.commands = new Discord.Collection();  // Création de la variable commande.
-const fs = require('fs');  // Import de la bibliothèque "FS".
-const bd = require("./jsons/bd.json");  // Création de l'objet nous permetant de stocker le nombre de messages envoyées.
-const reacts = require('./jsons/reactions.json'); // On importe dans l'objet reacts le fichier reactions.jsons
+const token = require("./jsons/token.json");  
+const badlist = require("./jsons/badlist.json");  
+const fs = require('fs');  
+const bd = require("./jsons/bd.json");  
+const reacts = require('./jsons/reactions.json'); 
+const configfile = require('./config.json');
+
 
 // Chargement des différentes commandes du fichier /Commandes
-
 fs.readdir('./Commandes/', (error, f) => {
     if (error) { return console.error(error); }
     let commandes = f.filter(f => f.split('.').pop() === 'js');
@@ -23,7 +24,6 @@ fs.readdir('./Commandes/', (error, f) => {
 });
 
 // Chargement des différents événements du fichier /Events
-
 fs.readdir('./Events/', (error, f) => {
     if (error) { return console.error(error); }
     console.log(`${f.length} events chargés`);
@@ -37,24 +37,22 @@ fs.readdir('./Events/', (error, f) => {
 
 
 // Message de bienvenue
-
 client.on('guildMemberAdd', member => {
     member.send("__**Bienvenue à toi sur le serveur Chrétiens-FR !**__ \n\nL'équipe du staff de **CH-FR** te souhaite de passer de très bons moments !\nTu peux et dès ton arrivée, lire & accepter le <#1009531135602200587> afin d'accéder au serveur. \n\nDès ton arrivée parmi nous tu pourras accéder au salon <#597917174975299593> qui va te permettre de sélectionner ta branche du christianisme mais également de te donner le rôle de Baptisé ou non. \n\n**Le staff de Chrétiens-FR** te souhaite de passer une très bonne aventure parmi les membres du serveur et d'y faire de très belles rencontres. \n\n\nL'équipe d'administration ♥.");
-    client.channels.cache.get("1018370495281897523").send(`**L'utilisateur ${member} à reçus un message de bienvenue !**`);
+    client.channels.cache.get(configfile.salon_ch_logs).send(`**L'utilisateur ${member} à reçus un message de bienvenue !**`);
 });
 
 // Channels créés
 client.on("channelCreate", function (user) {
-    client.channels.cache.get("1018370495281897523").send(`**Un message privé à été envoyé à ${user} !**`);
+    client.channels.cache.get(configfile.salon_ch_logs).send(`**Un message privé à été envoyé à ${user} !**`);
 });
 
 // Channels supprimées
 client.on("channelDelete", function (channel) {
-    client.channels.cache.get("1018370495281897523").send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`);
+    client.channels.cache.get(configfile.salon_ch_logs).send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`);
 });
 
 // Actions suite à une commande précise dans le tchat
-
 client.on("message", (message) => {
     if (message.content.startsWith("<@!430395704268161025>")) { // Ici c'est l'identifiant du bot @CH-FR => Actions après son appel en mention.
         message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
@@ -76,12 +74,12 @@ client.on("message", (message) => {
     }
 
 });
-// Actions après un message supprimé vers le serveur.
 
+// Actions après un message supprimé vers le serveur.
 client.on('messageDelete', message => {
     if (!message.author) return; // On ignore les messages qui ne sont pas en cache.
     console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
-    client.channels.cache.get("1018370495281897523").send({
+    client.channels.cache.get(configfile.salon_ch_logs).send({
         embed: {
             color: 3447003,
             author: {
@@ -117,7 +115,6 @@ client.on('messageDelete', message => {
 });
 
 // Vérification de gros mots.
-
 client.on("message", msg => {
     let wordArray = msg.content.split("  ");
     console.log(wordArray);
@@ -154,7 +151,7 @@ setInterval(function () {
 
     // A 23h59 il y a un message consernant le nombre de messages qui ont été envoyées sur le serveur.
     if (heure === 23 && minutes === 59) {
-        client.channels.cache.get("742420195666165781").send(`⭐ Il y a eu **${bd.messages}** messages envoyés sur le serveur aujourd'hui ⭐`);
+        client.channels.cache.get(ch_logs.salon_decompte).send(`⭐ Il y a eu **${bd.messages}** messages envoyés sur le serveur aujourd'hui ⭐`);
 
         let messagesstats =
         {
@@ -172,8 +169,8 @@ setInterval(function () {
     // Si c'est le début de soiré.
     if (heure === 20 && minutes === 00) {
 
-        let channel1 = client.channels.cache.get('742803386793197637');
-        let channel2 = client.channels.cache.get('1009531135602200587');
+        let channel1 = client.channels.cache.get(ch_logs.ouverture_fermeture);
+        let channel2 = client.channels.cache.get(ch_logs.salon_reglement);
 
 
 
@@ -184,7 +181,7 @@ setInterval(function () {
         channel2.updateOverwrite(channel2.guild.roles.everyone, { VIEW_CHANNEL: false });
 
         // On notifie le staff du changement
-        client.channels.cache.get("1018370495281897523").send("Le serveur est désormais **fermé** pour les __nouveaux__ !");
+        client.channels.cache.get(configfile.salon_ch_logs).send("Le serveur est désormais **fermé** pour les __nouveaux__ !");
 
 
     }
@@ -192,8 +189,8 @@ setInterval(function () {
     // Si c'est le jour
     if (heure === 07 && minutes === 00) {
 
-        let channel1 = client.channels.cache.get('742803386793197637');
-        let channel2 = client.channels.cache.get('1009531135602200587');
+        let channel1 = client.channels.cache.get(ch_logs.ouverture_fermeture);
+        let channel2 = client.channels.cache.get(ch_logs.salon_reglement);
 
         // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
         channel1.updateOverwrite(channel1.guild.roles.everyone, { VIEW_CHANNEL: false });
@@ -202,7 +199,7 @@ setInterval(function () {
         channel2.updateOverwrite(channel2.guild.roles.everyone, { VIEW_CHANNEL: true });
 
         // On notifie le staff du changement
-        client.channels.cache.get("1018370495281897523").send("Le serveur est désormais **ouvert** pour les __nouveaux__ !");
+        client.channels.cache.get(configfile.salon_ch_logs).send("Le serveur est désormais **ouvert** pour les __nouveaux__ !");
 
     }
 
