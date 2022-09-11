@@ -39,18 +39,18 @@ fs.readdir('./Events/', (error, f) => {
 // Message de bienvenue
 
 client.on('guildMemberAdd', member => {
-    member.send("__**Bienvenue à toi sur le serveur Chrétiens-FR !**__ \n\nL'équipe du staff de **CH-FR** te souhaite de passer de très bons moments !\nTu peux et dès ton arrivée, lire & accepter le <#564897331913162802> afin d'accéder au serveur. \n\nDès ton arrivée parmi nous tu pourras accéder au salon <#597917174975299593> qui va te permettre de sélectionner ta branche du christianisme mais également de te donner le rôle de Baptisé ou non. \n\n**Le staff de Chrétiens-FR** te souhaite de passer une très bonne aventure parmi les membres du serveur et d'y faire de très belles rencontres. \n\n\nL'équipe d'administration ♥.");
-    client.channels.cache.get("682716557176340682").send(`**L'utilisateur ${member} à reçus un message de bienvenue !**`);
+    member.send("__**Bienvenue à toi sur le serveur Chrétiens-FR !**__ \n\nL'équipe du staff de **CH-FR** te souhaite de passer de très bons moments !\nTu peux et dès ton arrivée, lire & accepter le <#1009531135602200587> afin d'accéder au serveur. \n\nDès ton arrivée parmi nous tu pourras accéder au salon <#597917174975299593> qui va te permettre de sélectionner ta branche du christianisme mais également de te donner le rôle de Baptisé ou non. \n\n**Le staff de Chrétiens-FR** te souhaite de passer une très bonne aventure parmi les membres du serveur et d'y faire de très belles rencontres. \n\n\nL'équipe d'administration ♥.");
+    client.channels.cache.get("1018370495281897523").send(`**L'utilisateur ${member} à reçus un message de bienvenue !**`);
 });
 
 // Channels créés
 client.on("channelCreate", function (user) {
-    client.channels.cache.get("682716557176340682").send(`**Un message privé à été envoyé à ${user} !**`);
+    client.channels.cache.get("1018370495281897523").send(`**Un message privé à été envoyé à ${user} !**`);
 });
 
 // Channels supprimées
 client.on("channelDelete", function (channel) {
-    client.channels.cache.get("682716557176340682").send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`);
+    client.channels.cache.get("1018370495281897523").send(`**Le salon possédant l'identifiant : __${channel.id}__ à été suprimé !**`);
 });
 
 // Actions suite à une commande précise dans le tchat
@@ -81,7 +81,7 @@ client.on("message", (message) => {
 client.on('messageDelete', message => {
     if (!message.author) return; // On ignore les messages qui ne sont pas en cache.
     console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
-    client.channels.cache.get("682716557176340682").send({
+    client.channels.cache.get("1018370495281897523").send({
         embed: {
             color: 3447003,
             author: {
@@ -173,7 +173,7 @@ setInterval(function () {
     if (heure === 20 && minutes === 00) {
 
         let channel1 = client.channels.cache.get('742803386793197637');
-        let channel2 = client.channels.cache.get('564897331913162802');
+        let channel2 = client.channels.cache.get('1009531135602200587');
 
 
 
@@ -184,7 +184,7 @@ setInterval(function () {
         channel2.updateOverwrite(channel2.guild.roles.everyone, { VIEW_CHANNEL: false });
 
         // On notifie le staff du changement
-        client.channels.cache.get("682716557176340682").send("Le serveur est désormais **fermé** pour les __nouveaux__ !");
+        client.channels.cache.get("1018370495281897523").send("Le serveur est désormais **fermé** pour les __nouveaux__ !");
 
 
     }
@@ -193,7 +193,7 @@ setInterval(function () {
     if (heure === 07 && minutes === 00) {
 
         let channel1 = client.channels.cache.get('742803386793197637');
-        let channel2 = client.channels.cache.get('564897331913162802');
+        let channel2 = client.channels.cache.get('1009531135602200587');
 
         // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
         channel1.updateOverwrite(channel1.guild.roles.everyone, { VIEW_CHANNEL: false });
@@ -202,7 +202,7 @@ setInterval(function () {
         channel2.updateOverwrite(channel2.guild.roles.everyone, { VIEW_CHANNEL: true });
 
         // On notifie le staff du changement
-        client.channels.cache.get("682716557176340682").send("Le serveur est désormais **ouvert** pour les __nouveaux__ !");
+        client.channels.cache.get("1018370495281897523").send("Le serveur est désormais **ouvert** pour les __nouveaux__ !");
 
     }
 
