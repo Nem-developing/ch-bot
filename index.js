@@ -116,7 +116,7 @@ client.on('messageDelete', message => {
 
 // Vérification de gros mots.
 client.on("message", msg => {
-    let wordArray = msg.content;
+    let wordArray = msg.content.split("  ");
     console.log(wordArray);
 
     let filterWords = (badlist.liste); // Ici j'ai placé la liste dans un fichier à part, cela permet de rendre le code plus propre et sans gros mots d'ailleurs.
