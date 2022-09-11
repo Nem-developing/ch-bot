@@ -1,4 +1,5 @@
-const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const Discord = require('discord.js'); 
+const configfile = require('../config.json');
 
 module.exports.run = (client, message, args) => {
     if (!args[0]) {
