@@ -18,7 +18,7 @@ const configfile = require('./config.json');
 // Chargement des différentes commandes
 const commandFiles = fs.readdirSync('./Commandes/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
-    const command = require(`./commands/${file}`);
+    const command = require(`./Commandes/${file}`);
     client.commands.set(command.name, command);
 }
 
