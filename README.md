@@ -9,7 +9,7 @@ __**CH-BOT MADE BY Nem-developing**__
 
 
 ## Node Package Manager's installation : 
-- npm i discord.js@v12
+- npm i discord.js
 - npm i superagent
 - npm i fs
 - npm i moment
