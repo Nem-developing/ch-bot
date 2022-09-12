@@ -1,7 +1,14 @@
 const Discord = require('discord.js'); 
 const configfile = require('../config.json');
 
-module.exports.run = (client, message, args) => {
+module.exports = {
+    name: 'alerte',
+    description: "Envoyer un message à un adhérent",
+    execute(client, message, args){
+ 
+    
+
+
     if (!args[0]) {
         return message.channel.send("Veuillez spécifier un Adérent à averir  !\n\n Utilisation : `!ch alerte [membre_à_avertir]`");
     }
@@ -59,9 +66,7 @@ module.exports.run = (client, message, args) => {
                  message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
              });
          })
-};
+    }
+}
 
 
-module.exports.help = {
-    name: 'alerte'
-};

@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const path = require('node:path');
 const { Client, GatewayIntentBits } = require('discord.js')
 const client = new Client({
     intents: [
@@ -9,24 +10,17 @@ const client = new Client({
 })
 
 const token = require("./jsons/token.json");  
-const fs = require('fs');  
+const fs = require('node:fs');  
 const bd = require("./jsons/bd.json");  
 const reacts = require('./jsons/reactions.json'); 
 const configfile = require('./config.json');
 
-
-const commands = [];
-const commandsPath = path.join(__dirname, './Commandes/');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
-	const command = require(filePath);
-	commands.push(command.data.toJSON());
-    console.log(`${command} commande chargée !`);
+// Chargement des différentes commandes
+const commandFiles = fs.readdirSync('./Commandes/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
 }
-
-
 
 
 
