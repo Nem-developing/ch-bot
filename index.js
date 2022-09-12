@@ -1,31 +1,34 @@
 const Discord = require('discord.js');
-const { Client, GatewayIntentBits } = require("discord.js");
-const client = new Discord.Client({ intents: [
-    Discord.Intents.FLAGS.GUILDS,
-    Discord.Intents.FLAGS.GUILD_MESSAGES,
-    Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS
-  ]});
+const { Client, GatewayIntentBits } = require('discord.js')
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.Guilds
+    ]
+})
 
 const token = require("./jsons/token.json");  
-const badlist = require("./jsons/badlist.json");  
 const fs = require('fs');  
 const bd = require("./jsons/bd.json");  
 const reacts = require('./jsons/reactions.json'); 
 const configfile = require('./config.json');
 
 
-// Chargement des différentes commandes du fichier /Commandes
-fs.readdir('./Commandes/', (error, f) => {
-    if (error) { return console.error(error); }
-    let commandes = f.filter(f => f.split('.').pop() === 'js');
-    if (commandes.length <= 0) { return console.log('Aucune commande trouvée !'); }
+const commands = [];
+const commandsPath = path.join(__dirname, './Commandes/');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-    commandes.forEach((f) => {
-        let commande = require(`./Commandes/${f}`);
-        console.log(`${f} commande chargée !`);
-        client.commands.set(commande.help.name, commande);
-    });
-});
+for (const file of commandFiles) {
+	const filePath = path.join(commandsPath, file);
+	const command = require(filePath);
+	commands.push(command.data.toJSON());
+    console.log(`${command} commande chargée !`);
+}
+
+
+
+
 
 // Chargement des différents événements du fichier /Events
 fs.readdir('./Events/', (error, f) => {
