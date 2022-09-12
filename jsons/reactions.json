@@ -2,6 +2,7 @@
     "reactionRole": {
         "1009537729761132554": {
             "emojis": [{
+                "name": ":adherer:",
                 "roles": "615260431975448579",
                 "nom" : "Adhérent"
             }]

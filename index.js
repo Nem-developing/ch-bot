@@ -1,6 +1,12 @@
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'], partials: ['MESSAGE', 'REACTION'] });client.commands = new Discord.Collection(); 
+const client = new Discord.Client({ intents: [
+    Discord.Intents.FLAGS.GUILDS,
+    Discord.Intents.FLAGS.GUILD_MESSAGES,
+    Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+  ]});
+
+
 const token = require("./jsons/token.json");  
 const badlist = require("./jsons/badlist.json");  
 const fs = require('fs');  
