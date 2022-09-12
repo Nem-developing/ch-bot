@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
-const client = new Discord.Client({partials: ['MESSAGE', 'REACTION']});
-client.commands = new Discord.Collection(); 
+const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'], partials: ['MESSAGE', 'REACTION'] });client.commands = new Discord.Collection(); 
 const token = require("./jsons/token.json");  
 const badlist = require("./jsons/badlist.json");  
 const fs = require('fs');  
@@ -77,7 +76,6 @@ client.on("message", (message) => {
     // On incrémente la valeur.
     bd.messages = bd.messages + 1;
 
-
     let messagesstats =
     {
         "messages": bd.messages
@@ -138,7 +136,8 @@ setInterval(function () {
 
     // A 23h59 il y a un message consernant le nombre de messages qui ont été envoyées sur le serveur.
     if (heure === 23 && minutes === 59) {
-        client.channels.cache.get(ch_logs.salon_decompte).send(`⭐ Il y a eu **${bd.messages}** messages envoyés sur le serveur aujourd'hui ⭐`);
+        console.log("test");
+        client.channels.cache.get(configfile.salon_decompte).send(`⭐ Il y a eu **${bd.messages}** messages envoyés sur le serveur aujourd'hui ⭐`);
 
         let messagesstats =
         {
@@ -156,8 +155,8 @@ setInterval(function () {
     // Si c'est le début de soiré.
     if (heure === 20 && minutes === 00) {
 
-        let channel1 = client.channels.cache.get(ch_logs.ouverture_fermeture);
-        let channel2 = client.channels.cache.get(ch_logs.salon_reglement);
+        let channel1 = client.channels.cache.get(configfile.ouverture_fermeture);
+        let channel2 = client.channels.cache.get(configfile.salon_reglement);
 
 
 
@@ -176,8 +175,8 @@ setInterval(function () {
     // Si c'est le jour
     if (heure === 07 && minutes === 00) {
 
-        let channel1 = client.channels.cache.get(ch_logs.ouverture_fermeture);
-        let channel2 = client.channels.cache.get(ch_logs.salon_reglement);
+        let channel1 = client.channels.cache.get(configfile.ouverture_fermeture);
+        let channel2 = client.channels.cache.get(configfile.salon_reglement);
 
         // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
         channel1.updateOverwrite(channel1.guild.roles.everyone, { VIEW_CHANNEL: false });
@@ -194,7 +193,7 @@ setInterval(function () {
 }, 60000);
 
 
-// REACTIONS 
+// REACTIONS --> TEST OK
 
 client.on('messageReactionAdd', (reaction, user, member) => {
     // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot
