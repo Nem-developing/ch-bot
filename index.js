@@ -17,6 +17,13 @@ const configfile = require('./config.json');
 client.commands = new Discord.Collection();
 
 
+// Chargement des différentes commandes
+const commandFiles = fs.readdirSync('./Commandes/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./Commandes/${file}`);
+    console.log(`Fichier ${file} chargé !`);
+    client.commands.set(command.name, command);
+}
 
 
 // Chargement des différents événements du fichier /Events
@@ -258,13 +265,6 @@ client.on('messageReactionRemove', (reaction, user) => {
 });
 
 
-// Chargement des différentes commandes
-const commandFiles = fs.readdirSync('./Commandes/').filter(file => file.endsWith('.js'));
-for(const file of commandFiles){
-    const command = require(`./Commandes/${file}`);
-    console.log(`Fichier ${file} chargé !`);
-    client.commands.set(command.name, command);
-}
 
 
 

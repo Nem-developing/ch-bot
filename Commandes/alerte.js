@@ -2,9 +2,10 @@ const Discord = require('discord.js');
 const configfile = require('../config.json');
 
 module.exports = {
-    name: 'alerte',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+    config: {
+        aliases: ["alerte", "alrt"]
+    },
+    run: (client, message, args) => {
  
     
 
