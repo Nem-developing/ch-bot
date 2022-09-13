@@ -76,6 +76,7 @@ client.on("message", (message) => {
         message.channel.send("<@!179640392432615425> m'a fait.");
     }
 
+    console.log("Un message a été vu !");
 
     // On incrémente la valeur.
     bd.messages = bd.messages + 1;
