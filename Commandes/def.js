@@ -2,10 +2,7 @@ const Discord = require('discord.js'); // Import de la bibliothéque "discord.js
 var unirest = require("unirest");
 const dico = require("../jsons/dictionnaire.json")  // Consulter https://rapidapi.com/dicolink/api/dicolink & mettre votre key dans le fichier dictionnaire.json
  
-module.exports = {
-    name: 'def',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+module.exports.run = (client, message, args) => {
     if (!args[0]) {
         return message.channel.send("Veuillez spécifier un mot à définir !\n\n Utilisation : `!ch def [mot_à_deffinir]`");
     }
@@ -121,5 +118,8 @@ module.exports = {
 
 
 	});
-}
+};
+
+module.exports.help = {
+    name: 'def'
 };

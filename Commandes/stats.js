@@ -2,10 +2,7 @@ const Discord = require('discord.js'); // Import de la bibliothèque "discord.js
 const moment = require('moment');
 
 
-module.exports = {
-    name: 'stats',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
     if (!membre) { return message.channel.send('Veuillez mentionner un utilisateur !'); }
 
@@ -39,5 +36,8 @@ module.exports = {
             }
         }
     });
-}
+};
+
+module.exports.help = {
+    name: 'stats'
 };

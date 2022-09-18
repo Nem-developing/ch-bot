@@ -1,15 +1,6 @@
-const Discord = require('discord.js'); 
-const configfile = require('../config.json');
+const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
-module.exports = {
-    config: {
-        aliases: ["alerte", "alrt"]
-    },
-    run: (client, message, args) => {
- 
-    
-
-
+module.exports.run = (client, message, args) => {
     if (!args[0]) {
         return message.channel.send("Veuillez spécifier un Adérent à averir  !\n\n Utilisation : `!ch alerte [membre_à_avertir]`");
     }
@@ -67,7 +58,9 @@ module.exports = {
                  message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
              });
          })
-    }
-}
+};
 
 
+module.exports.help = {
+    name: 'alerte'
+};

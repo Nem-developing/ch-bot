@@ -1,9 +1,6 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
-module.exports = {
-    name: 'start',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+module.exports.run = (client, message, args) => {
     if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) {
         return;
     }
@@ -22,7 +19,11 @@ module.exports = {
     message.channel.send(`__**Tchat ré-ouvert !**__`)
 
 
-    }
+
+};
+
+module.exports.help = {
+    name: 'start'
 };
 
 

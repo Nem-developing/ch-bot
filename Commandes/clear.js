@@ -1,9 +1,6 @@
 const Discord = require("discord.js"); // Import de la bibliothéque "discord.js".
 
-module.exports = {
-    name: 'clear',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+module.exports.run = (client, message, args) => {
     if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) { return message.channel.send('Vous n\'avez pas les permissions !'); }
     if (!args[0]) { return message.channel.send('Vous devez spécifier un nombre de messages à supprimer !'); }
     else if (isNaN(args[0])) { return message.channel.send('Veuillez spécifier un nombre !'); }
@@ -12,5 +9,8 @@ module.exports = {
             .then((messages) => {
                 message.channel.send(`**${messages.size}** messages ont été supprimés !`);
             });
-        }
+};
+
+module.exports.help = {
+    name: 'clear'
 };

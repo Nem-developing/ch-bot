@@ -1,9 +1,6 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
-module.exports = {
-    name: 'outcalme',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+module.exports.run = (client, message, args) => {
     if (!message.guild.member(message.author.id).hasPermission('MANAGE_ROLES')) { return message.channel.send('Vous n\'avez pas la permission d\'utiliser cette commande !'); }
     
     let mentioned = message.mentions.members.first();
@@ -33,7 +30,11 @@ module.exports = {
     // On informe du succès de l'opération !
     message.channel.send(`Le membre **${mentioned}** à bien été réintégré sur le serveur !`);
     
-    }
+
+};
+
+module.exports.help = {
+	name: 'outcalme'
 };
 
 

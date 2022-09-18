@@ -1,9 +1,6 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
-module.exports = {
-    name: 'report',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+module.exports.run = (client, message, args) => {
     let mentioned = message.mentions.users.first();
     if (!args[0]) {
         return message.channel.send("Veuillez spécifier un membre à report au staff  !\n\n Utilisation : `!ch report [@membre_à_report]`");
@@ -81,5 +78,9 @@ module.exports = {
                 message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
             });
     })
-}
+};
+
+
+module.exports.help = {
+    name: 'report'
 };

@@ -1,9 +1,6 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
-module.exports = {
-    name: 'help',
-    description: "Envoyer un message à un adhérent",
-    execute(client, message, args){
+module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
 
     message.channel.send({
@@ -40,6 +37,10 @@ module.exports = {
                 text: "© Chrétiens-FR"
             }
         }
-    
+
         })
-    }}
+    }
+
+module.exports.help = {
+    name: 'help'
+};
