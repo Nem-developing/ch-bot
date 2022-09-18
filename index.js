@@ -236,6 +236,7 @@
 
             member.send(`**Le rôle __${emoji.nom}__ vous a été attribué !**`);
 
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**Le rôle ${emoji.nom} a été ajouté à ${user} !**`);
 
         }
 
@@ -244,7 +245,6 @@
     });
 
     client.on('messageReactionRemove', (reaction, user) => {
-        console.log("Une Réaction a été supprimée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot.
         if (!reaction.message.guild || user.bot) return;
 
@@ -270,6 +270,8 @@
             member.roles.remove(role);  // On retire le rôle de l'utilisateur
 
             member.send(`**Le rôle __${emoji.nom}__ vous a été __retiré__ !**`);
+
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**Le rôle ${emoji.nom} a été retiré à ${user} !**`);
         };
     });
 
