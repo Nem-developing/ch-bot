@@ -1,17 +1,11 @@
     const Discord = require('discord.js');
     const { Client, GatewayIntentBits } = require('discord.js');
 
+    const { Client, GatewayIntentBits, Partials } = require('discord.js');
+
     const client = new Client({
-        intents: [
-            GatewayIntentBits.Guilds,
-            GatewayIntentBits.GuildMessages,
-            GatewayIntentBits.MessageContent,
-            GatewayIntentBits.GuildMembers,
-            GatewayIntentBits.GuildMessageReactions,
-            GatewayIntentBits.DirectMessageReactions,
-            GatewayIntentBits.GuildMessages,
-            ],
-        partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+        intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions],
+        partials: [Partials.Message, Partials.Channel, Partials.Reaction],
     });
 
     const token = require("./jsons/token.json");  
