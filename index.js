@@ -26,7 +26,7 @@
 
 
     // TEST :
-    bot.on('messageReactionAdd', (reaction, user) => {
+    client.on('messageReactionAdd', (reaction, user) => {
         console.log("first check");
         if (reaction.emoji.name === "✅") {
           console.log("second check");
