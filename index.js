@@ -216,7 +216,7 @@
 
     // REACTIONS --> TEST OK
 
-    client.on('MESSAGE_REACTION_ADD', (reaction, user, member) => {
+    client.on('MessageReactionAdd ', (reaction, user, member) => {
         console.log("Une Réaction a été ajoutée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot
         if (!reaction.message.guild || user.bot) return;
@@ -252,7 +252,7 @@
         else reaction.users.remove(user);
     });
 
-    client.on('MESSAGE_REACTION_REMOVE', (reaction, user) => {
+    client.on('MessageReactionRemove', (reaction, user) => {
         console.log("Une Réaction a été supprimée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot.
         if (!reaction.message.guild || user.bot) return;
