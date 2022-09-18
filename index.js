@@ -1,6 +1,14 @@
     const Discord = require('discord.js');
-    let Int_all = new Discord.Intents(Discord.Intents.ALL);
-    const client = new Discord.Client({ws: { intents: Int_all }});
+    const { Client, GatewayIntentBits } = require('discord.js');
+
+    const client = new Client({
+        intents: [
+            GatewayIntentBits.Guilds,
+            GatewayIntentBits.GuildMessages,
+            GatewayIntentBits.MessageContent,
+            GatewayIntentBits.GuildMembers,
+        ],
+    });
 
     const token = require("./jsons/token.json");  
     const fs = require('node:fs');  
