@@ -10,7 +10,6 @@
             GatewayIntentBits.GuildMessageReactions,
             GatewayIntentBits.DirectMessageReactions,
             GatewayIntentBits.GuildMessages,
-            "GUILD_MESSAGE_REACTIONS",
             ],
         partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
     });
