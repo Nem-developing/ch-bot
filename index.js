@@ -147,7 +147,8 @@
         var date = new Date();
         var heure = date.getHours();
         var minutes = date.getMinutes();
-
+        console.log(heure)
+        console.log(minutes)
         // A 23h59 il y a un message consernant le nombre de messages qui ont été envoyées sur le serveur.
         if (heure === 23 && minutes === 59) {
             console.log("test");
