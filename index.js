@@ -168,7 +168,7 @@
 
 
         // Si c'est le début de soiré.  --> 20H00
-        if (heure === 16 && minutes === 50) {
+        if (heure === 16 && minutes === 55) {
 
             let channel1 = client.channels.cache.get(configfile.ouverture_fermeture);
             let channel2 = client.channels.cache.get(configfile.salon_reglement);
@@ -176,10 +176,10 @@
 
 
             // On affiche la vue pour les nouveaux du salon "Ouverture-Fermeture".
-            channel1.overwritePermissions(channel1.guild.roles.everyone, { VIEW_CHANNEL: true });
+            channel1.permissionOverwrites.create(channel1.guild.roles.everyone, { VIEW_CHANNEL: true });
 
             // On retire la vue du règlement pour les nouveaux.
-            channel2.overwritePermissions(channel2.guild.roles.everyone, { VIEW_CHANNEL: false });
+            channel2.permissionOverwrites.create(channel2.guild.roles.everyone, { VIEW_CHANNEL: false });
 
             // On notifie le staff du changement
             client.channels.cache.get(configfile.salon_ch_logs).send("Le serveur est désormais **fermé** pour les __nouveaux__ !");
@@ -188,16 +188,16 @@
         }
 
         // Si c'est le jour             --> 07H00
-        if (heure === 16 && minutes === 51) {
+        if (heure === 16 && minutes === 54) {
 
             let channel1 = client.channels.cache.get(configfile.ouverture_fermeture);
             let channel2 = client.channels.cache.get(configfile.salon_reglement);
 
             // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
-            channel1.overwritePermissions(channel1.guild.roles.everyone, { VIEW_CHANNEL: false });
+            channel1.permissionOverwrites.create(channel1.guild.roles.everyone, { VIEW_CHANNEL: false });
 
             // On affiche le règlement pour les nouveaux.
-            channel2.overwritePermissions(channel2.guild.roles.everyone, { VIEW_CHANNEL: true });
+            channel2.permissionOverwrites.create(channel2.guild.roles.everyone, { VIEW_CHANNEL: true });
 
             // On notifie le staff du changement
             client.channels.cache.get(configfile.salon_ch_logs).send("Le serveur est désormais **ouvert** pour les __nouveaux__ !");
