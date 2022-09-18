@@ -236,7 +236,7 @@
 
             member.send(`**Le rôle __${emoji.nom}__ vous a été attribué !**`);
 
-            client.channels.cache.get(configfile.salon_ch_logs).send(`**Le rôle ${emoji.nom} a été ajouté à ${user} !**`);
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**Le rôle \`${emoji.nom}\` a été ajouté à ${user} !**`);
 
         }
 
