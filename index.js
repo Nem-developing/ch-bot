@@ -1,14 +1,6 @@
     const Discord = require('discord.js');
-    const { Client, GatewayIntentBits } = require('discord.js');
-
-    const client = new Client({
-        intents: [
-            GatewayIntentBits.Guilds,
-            GatewayIntentBits.GuildMessages,
-            GatewayIntentBits.MessageContent,
-            GatewayIntentBits.GuildMembers,
-        ],
-    });
+    let Int_all = new Discord.Intents(Discord.Intents.ALL);
+    const client = new Discord.Client({ws: { intents: Int_all }});
 
     const token = require("./jsons/token.json");  
     const fs = require('node:fs');  
@@ -86,7 +78,7 @@
             message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
         }
         if (message.content.startsWith("WHO MADE CH-FR ?")) {
-            message.channel.send("<@!179640392432615425> m'a fait.");
+            message.channel.send("<@!179640392432615425> m'a fait :) !");
         }
 
 
