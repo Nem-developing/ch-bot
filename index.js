@@ -168,7 +168,7 @@
 
 
         // Si c'est le début de soiré.  --> 20H00
-        if (heure === 16 && minutes === 55) {
+        if (heure === 16 && minutes === 58) {
 
             let channel1 = client.channels.cache.get(configfile.ouverture_fermeture);
             let channel2 = client.channels.cache.get(configfile.salon_reglement);
@@ -176,10 +176,10 @@
 
 
             // On affiche la vue pour les nouveaux du salon "Ouverture-Fermeture".
-            channel1.permissionOverwrites.create(channel1.guild.roles.everyone, { VIEW_CHANNEL: true });
+            channel1.overwritePermissions(channel1.guild.roles.everyone, { VIEW_CHANNEL: true });
 
             // On retire la vue du règlement pour les nouveaux.
-            channel2.permissionOverwrites.create(channel2.guild.roles.everyone, { VIEW_CHANNEL: false });
+            channel2.overwritePermissions(channel2.guild.roles.everyone, { VIEW_CHANNEL: false });
 
             // On notifie le staff du changement
             client.channels.cache.get(configfile.salon_ch_logs).send("Le serveur est désormais **fermé** pour les __nouveaux__ !");
