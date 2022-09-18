@@ -213,6 +213,7 @@
     // REACTIONS --> TEST OK
 
     client.on('messageReactionAdd', (reaction, user, member) => {
+        console.log("Une Réaction a été ajoutée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot
         if (!reaction.message.guild || user.bot) return;
 
@@ -248,6 +249,7 @@
     });
 
     client.on('messageReactionRemove', (reaction, user) => {
+        console.log("Une Réaction a été supprimée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot.
         if (!reaction.message.guild || user.bot) return;
 
