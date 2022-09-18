@@ -25,15 +25,6 @@
     client.aliases = new Discord.Collection();
 
 
-    // TEST :
-    client.on('messageReactionAdd', (reaction, user) => {
-        console.log("first check");
-        if (reaction.emoji.name === "✅") {
-          console.log("second check");
-        }
-      });
-
-
     // Chargement des différentes commandes du fichier /Commandes
     fs.readdir('./Commandes/', (error, f) => {
         if (error) { return console.error(error); }
@@ -224,7 +215,7 @@
     }, 60000);
 
 
-    client.on('MessageReactionAdd', (reaction, user) => {
+    client.on('messageReactionAdd', (reaction, user) => {
         console.log("Une Réaction a été ajoutée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot
         if (!reaction.message.guild || user.bot) return;
@@ -260,7 +251,7 @@
         else reaction.users.remove(user);
     });
 
-    client.on('MessageReactionRemove', (reaction, user) => {
+    client.on('messageReactionRemove', (reaction, user) => {
         console.log("Une Réaction a été supprimée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot.
         if (!reaction.message.guild || user.bot) return;
