@@ -8,6 +8,9 @@
             GatewayIntentBits.MessageContent,
             GatewayIntentBits.GuildMembers,
             GatewayIntentBits.GuildMessageReactions,
+            GatewayIntentBits.DirectMessageReactions,
+            GatewayIntentBits.GuildMessages,
+
         ],
     });
 
@@ -213,7 +216,7 @@
 
     // REACTIONS --> TEST OK
 
-    client.on('messageReactionAdd', (reaction, user, member) => {
+    client.on('MESSAGE_REACTION_ADD', (reaction, user, member) => {
         console.log("Une Réaction a été ajoutée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot
         if (!reaction.message.guild || user.bot) return;
@@ -249,7 +252,7 @@
         else reaction.users.remove(user);
     });
 
-    client.on('messageReactionRemove', (reaction, user) => {
+    client.on('MESSAGE_REACTION_REMOVE', (reaction, user) => {
         console.log("Une Réaction a été supprimée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot.
         if (!reaction.message.guild || user.bot) return;
