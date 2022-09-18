@@ -271,7 +271,7 @@
 
             member.send(`**Le rôle __${emoji.nom}__ vous a été __retiré__ !**`);
 
-            client.channels.cache.get(configfile.salon_ch_logs).send(`**Le rôle ${emoji.nom} a été retiré à ${user} !**`);
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**Le rôle \`${emoji.nom}\` a été retiré à ${user} !**`);
         };
     });
 
