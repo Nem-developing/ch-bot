@@ -1,5 +1,4 @@
     const Discord = require('discord.js');
-    const { Client, GatewayIntentBits } = require('discord.js');
 
     const { Client, GatewayIntentBits, Partials } = require('discord.js');
 
