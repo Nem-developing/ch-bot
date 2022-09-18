@@ -1,5 +1,5 @@
-const Discord = require('discord.js'); // Import de la librarie "Discord.js".
-const prefix = '!ch';   // Ici on définie le préfix pour le chat. 
+const Discord = require('discord.js'); 
+const prefix = '!ch';   
 
 module.exports = (client, message) => {
     if (message.author.bot || message.channel.type === 'dm') { return; }
