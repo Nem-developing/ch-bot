@@ -45,6 +45,10 @@
         });
     });
 
+    // LOGS
+    client.on('messageCreate', message => {
+        console.log(message.content);
+    });
 
 
 
@@ -65,7 +69,7 @@
     });
 
     // Actions suite à une commande précise dans le tchat
-    client.on("message", (message) => {
+    client.on("messageCreate", (message) => {
         if (message.content.startsWith("<@!430395704268161025>")) { // Ici c'est l'identifiant du bot @CH-FR => Actions après son appel en mention.
             message.channel.send("Qui me veut ? Tu veux de l'aide ? Fait : `!ch help`.");
         }
