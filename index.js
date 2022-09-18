@@ -12,6 +12,7 @@
             GatewayIntentBits.GuildMessages,
 
         ],
+        partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
     });
 
     const token = require("./jsons/token.json");  
@@ -214,9 +215,7 @@
     }, 60000);
 
 
-    // REACTIONS --> TEST OK
-
-    client.on('MessageReactionAdd ', (reaction, user, member) => {
+    client.on('MessageReactionAdd', (reaction, user, member) => {
         console.log("Une Réaction a été ajoutée !")
         // Si on est pas dans un serveur ou que l'utilisateur fait réagire un bot
         if (!reaction.message.guild || user.bot) return;
