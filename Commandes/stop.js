@@ -14,7 +14,7 @@ module.exports.run = (client, message, args) => {
 
 
     // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
-    channel.updateOverwrite(aderants, { SEND_MESSAGES: false });
+    channel.permissionOverwrites.edit(aderants, { SEND_MESSAGES: false });
 
 
     message.channel.send(`======================================================`)
