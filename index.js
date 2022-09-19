@@ -166,9 +166,9 @@
 
 
         // Si c'est le début de soiré.  --> 20H00
-        if (heure === 17 && minutes === 15) {
+        if (heure === 21 && minutes === 19) {
 
-            let channel1 = client.channels.cache.get(configfile.ouverture_fermeture);
+            let channel1 = client.channels.cache.get(configfile.salon_ouverture_fermeture);
             let channel2 = client.channels.cache.get(configfile.salon_reglement);
             
 
@@ -186,9 +186,9 @@
         }
 
         // Si c'est le jour             --> 07H00
-        if (heure === 16 && minutes === 54) {
+        if (heure === 21 && minutes === 18) {
 
-            let channel1 = client.channels.cache.get(configfile.ouverture_fermeture);
+            let channel1 = client.channels.cache.get(configfile.salon_ouverture_fermeture);
             let channel2 = client.channels.cache.get(configfile.salon_reglement);
 
             // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
