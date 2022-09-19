@@ -21,7 +21,8 @@
     fs.readdir('./Commandes/', (error, f) => {
         if (error) { return console.error(error); }
         let commandes = f.filter(f => f.split('.').pop() === 'js');
-        if (commandes.length <= 0) { return console.log('Aucune commande trouvée !'); }
+        if (commandes.length <= 0) { return console.log('Aucune commande trouv
+        ée !'); }
 
         commandes.forEach((f) => {
             let commande = require(`./Commandes/${f}`);
@@ -44,7 +45,7 @@
 
     // LOGS
     client.on('messageCreate', message => {
-        console.log(message.content);
+        console.log("[+] " + message.content);
     });
 
 
