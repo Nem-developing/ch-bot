@@ -1,9 +1,12 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const configfile = require('../config.json');
 
 module.exports.run = (client, message, args) => {
-    if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) {
+    if (!message.member.roles.cache.has(configfile.role_staff)) {
+        message.channel.send("Vous n'avez pas les perms nécessaires pour exécuter cette commande !")
         return;
-    }
+	}
+
 
 
     // Premièrement on doit récuperer l'id du channel actuel.
@@ -13,7 +16,7 @@ module.exports.run = (client, message, args) => {
 
 
     // On retire la vue pour les nouveaux du salon "Ouverture-Fermeture".
-    channel.permissionOverwrites.edit(aderants, { SEND_MESSAGES: true });
+    channel.permissionOverwrites.edit(aderants, { SendMessages: true });
 
 
     message.channel.send(`__**Tchat ré-ouvert !**__`)
