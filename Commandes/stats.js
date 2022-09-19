@@ -24,7 +24,7 @@ module.exports.run = (client, message, args) => {
                 },
                 {
                     name: 'Jeu :',
-                    value: membre.user.presence.status ? membre.user.presence.game.name : 'Aucun jeu'
+                    value: membre.user.presence ? membre.user.presence : 'Aucun jeu'
                 },
                 {
                     name: 'Rejoin le :',
