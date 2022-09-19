@@ -67,5 +67,7 @@ const wait = async function(message,mentioned,arg,client){
     } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
+
+    console.log(collected)
     return 
 }
