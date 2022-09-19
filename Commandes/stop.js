@@ -1,8 +1,8 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
 module.exports.run = (client, message, args) => {
-	if (!message.member.permissions.has("MANAGE_MESSAGES")) {
-		return;
+	if (!message.member.roles.cache.has(658336346133233683)) {
+		message.channel.send(`Tu ne peux pas utiliser cette commande !`)
 	}
 
 
