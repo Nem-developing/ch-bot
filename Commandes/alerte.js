@@ -62,12 +62,10 @@ const wait = async function(message,mentioned,arg,client){
     }
     
     if (collected){
-        mentioned.send({ embeds: [exampleEmbed] })
+        mentioned.send({ embeds: [embed] });
         message.channel.send(`Le message : "_${collected}_" a bien été envoyé à ${arg} !`);
     } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
-
-    mentioned.send({ embeds: [embed] });
     return 
 }
