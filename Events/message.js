@@ -1,5 +1,5 @@
 const Discord = require('discord.js'); 
-const prefix = '!ch';   
+const prefix = "!ch";   
 
 module.exports = (client, message) => {
     if (message.author.bot || message.channel.type === 'dm')  return; 
