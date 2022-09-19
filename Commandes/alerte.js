@@ -17,10 +17,22 @@ module.exports.run = (client, message, args) => {
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
 
-    let result = wait(message);
+    wait(message);
 
 
-    if (!result){
+    
+};
+
+
+module.exports.help = {
+    name: 'alerte'
+};
+
+const wait = async function(message){
+    const msg_filter = (m) => m.author.id === message.author.id;
+    const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
+
+    if (result){
         mentioned.send({
             embed: {
              "type": "rich",
@@ -33,15 +45,6 @@ module.exports.run = (client, message, args) => {
     } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
-};
 
-
-module.exports.help = {
-    name: 'alerte'
-};
-
-const wait = async function(message){
-    const msg_filter = (m) => m.author.id === message.author.id;
-    const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
-    return collected
+    return 
 }
