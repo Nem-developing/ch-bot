@@ -42,6 +42,6 @@ module.exports.help = {
 
 const wait = async function(message){
     const msg_filter = (m) => m.author.id === message.author.id;
-    const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1 });
+    const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
     return collected
 }
