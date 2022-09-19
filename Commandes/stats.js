@@ -5,22 +5,13 @@ const { EmbedBuilder } = require('discord.js');
 module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
     if (!membre) { return message.channel.send('Veuillez mentionner un utilisateur !'); }
-    message.channel.send(membre.user.presence)
 
+    message.channel.send(`Statistiques de l'utilisateur **${membre.user.username}**`)
+    message.channel.send(`ID : ${membre.id}`)
+    message.channel.send(`Crée le : : ${moment.utc(membre.user.createdAt).format("LL")}`)
+    message.channel.send(`Rejoin le : : ${moment.utc(membre.joinedAt).format('LL')}`)
 
-
-    const exampleEmbed = new EmbedBuilder()
-        .setColor(3447003)
-        .setTitle(`Statistiques de l'utilisateur **${membre.user.username}**`)
-        .addFields(
-            { name: 'ID :', value: membre.id },
-            { name: 'Crée le :', value: moment.utc(membre.user.createdAt).format("LL") },
-            { name: 'Rejoin le :', value: membre.id },
-        )
-        .setTimestamp()
-        .setFooter({ text: `Informations de l'utilisateur ${membre.user.username}`});
-
-    message.channel.send({ embeds: [exampleEmbed] });
+    
 };
 
 module.exports.help = {
