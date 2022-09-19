@@ -17,7 +17,7 @@ module.exports.run = (client, message, args) => {
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
 
-    wait(message,mentioned,args);
+    wait(message,mentioned,args[0]);
 
 
     
@@ -28,7 +28,7 @@ module.exports.help = {
     name: 'alerte'
 };
 
-const wait = async function(message,mentioned,args){
+const wait = async function(message,mentioned,arg){
     const msg_filter = (m) => m.author.id === message.author.id;
     const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
 
@@ -41,7 +41,7 @@ const wait = async function(message,mentioned,args){
              "color": 0x00FFFF
            }
         })
-        message.channel.send(`Le message : "_${collected}_" a bien été envoyé à ${args[0]} !`);
+        message.channel.send(`Le message : "_${collected}_" a bien été envoyé à ${arg} !`);
     } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
