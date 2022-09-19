@@ -17,8 +17,7 @@ module.exports.run = (client, message, args) => {
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
     const msg_filter = (m) => m.author.id === message.author.id;
-
-    const collector = interaction.channel.createMessageCollector({ filter, time: 15000, max: 1 });
+    const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1 });
 
     if (!collector){
         mentioned.send({
