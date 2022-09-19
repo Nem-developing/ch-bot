@@ -20,7 +20,7 @@ module.exports.run = (client, message, args) => {
         .setTimestamp()
         .setFooter({ text: `Informations de l'utilisateur ${membre.user.username}`});
 
-    channel.send({ embeds: [exampleEmbed] });
+    message.channel.send({ embeds: [exampleEmbed] });
 };
 
 module.exports.help = {
