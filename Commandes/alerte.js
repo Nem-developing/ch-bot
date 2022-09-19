@@ -17,7 +17,7 @@ module.exports.run = (client, message, args) => {
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
 
-    let result = await wait(message);
+    let result = wait(message);
 
 
     if (!result){
