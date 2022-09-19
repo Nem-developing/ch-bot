@@ -2,7 +2,8 @@ const Discord = require('discord.js'); // Import de la bibliothéque "discord.js
 
 module.exports.run = (client, message, args) => {
 	if (!message.member.roles.cache.has('MANAGE_MESSAGES')) {
-		return;
+        message.channel.send("Vous n'avez pas les perms nécessaires pour exécuter cette commande !")
+        return;
 	}
 
 
