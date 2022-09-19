@@ -1,7 +1,7 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
 module.exports.run = (client, message, args) => {
-	if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) {
+	if (!message.guild.members.cache.get(message.author).hasPermission('MANAGE_MESSAGES')) {
 		return;
 	}
 
