@@ -166,7 +166,7 @@
 
 
         // Si c'est le début de soiré.  --> 20H00
-        if (heure === 21 && minutes === 22) {
+        if (heure === 21 && minutes === 26) {
 
             let channel1 = client.channels.cache.get(configfile.salon_ouverture_fermeture);
             let channel2 = client.channels.cache.get(configfile.salon_reglement);
@@ -186,7 +186,7 @@
         }
 
         // Si c'est le jour             --> 07H00
-        if (heure === 21 && minutes === 21) {
+        if (heure === 21 && minutes === 25) {
 
             let channel1 = client.channels.cache.get(configfile.salon_ouverture_fermeture);
             let channel2 = client.channels.cache.get(configfile.salon_reglement);
