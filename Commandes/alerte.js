@@ -32,16 +32,16 @@ const wait = async function(message){
     const msg_filter = (m) => m.author.id === message.author.id;
     const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
 
-    if (result){
+    if (collected){
         mentioned.send({
             embed: {
              "type": "rich",
              "title": `Quelqu'un a rapporté votre comportement - Chrétiens-FR`,
-             "description": `Un membre du serveur Chrétiens-FR a souhaité rapporté votre comportement à l'équipe d'administration. Ci-dessous vous trouverez la raison de ce rapport !\n\n**Raison du raport :**\n${result}\n\n**Informations supplémentaires :**\nLa commande de rapport peut-être exécuté par nimporte qui sur le serveur. N'ayez donc pas d'inquiétudes si vous n'avez rien fait.\n\n**Qu'est-ce qu'il se passe maintenant ?**\nSi ce rapport est bien fondé, vous receverez un avertissement ou un ban selon le motif de celui-ci. Cependant, si nous ne trouvons pas de fondement dans ce rapport vous n'aurez aucun soucis. Nous vous encourageons à respecter toutes les règles inscrites dans le règlement.\n\n**Toute l'équipe du staff vous remercie pour votre implication sur le serveur !**\n\n\n\n\n`,
+             "description": `Un membre du serveur Chrétiens-FR a souhaité rapporté votre comportement à l'équipe d'administration. Ci-dessous vous trouverez la raison de ce rapport !\n\n**Raison du raport :**\n${collected}\n\n**Informations supplémentaires :**\nLa commande de rapport peut-être exécuté par nimporte qui sur le serveur. N'ayez donc pas d'inquiétudes si vous n'avez rien fait.\n\n**Qu'est-ce qu'il se passe maintenant ?**\nSi ce rapport est bien fondé, vous receverez un avertissement ou un ban selon le motif de celui-ci. Cependant, si nous ne trouvons pas de fondement dans ce rapport vous n'aurez aucun soucis. Nous vous encourageons à respecter toutes les règles inscrites dans le règlement.\n\n**Toute l'équipe du staff vous remercie pour votre implication sur le serveur !**\n\n\n\n\n`,
              "color": 0x00FFFF
            }
         })
-        message.channel.send(`Le message : "_${result}_" a bien été envoyé à ${args[0]} !`);
+        message.channel.send(`Le message : "_${collected}_" a bien été envoyé à ${args[0]} !`);
     } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
