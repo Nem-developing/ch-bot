@@ -6,9 +6,9 @@ module.exports.run = (client, message, args) => {
     if (!membre) { return message.channel.send('Veuillez mentionner un utilisateur !'); }
 
     message.channel.send(`Statistiques de l'utilisateur **${membre.user.username}**`)
-    message.channel.send(`ID : ${membre.id}`)
-    message.channel.send(`Crée le : : ${moment.utc(membre.user.createdAt).format("LL")}`)
-    message.channel.send(`Rejoin le : : ${moment.utc(membre.joinedAt).format('LL')}`)
+    message.channel.send(`--> ID : ${membre.id}`)
+    message.channel.send(`--> Compte créé depuis le ${moment.utc(membre.user.createdAt).format("LL")}`)
+    message.channel.send(`--> Membre du serveurs depuis le ${moment.utc(membre.joinedAt).format('LL')}`)
 
 
 };
