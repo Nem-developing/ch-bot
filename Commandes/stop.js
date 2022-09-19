@@ -1,7 +1,7 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 
 module.exports.run = (client, message, args) => {
-	if (!message.member.hasPermission("BAN_MEMBERS")) {
+	if (!message.member.permissions.has("MANAGE_MESSAGES")) {
 		return;
 	}
 
