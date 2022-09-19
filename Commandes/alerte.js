@@ -42,7 +42,7 @@ const wait = async function(message,mentioned,arg,client){
         description: "Un membre de l'équipe d'administration du serveur Chrétiens-Fr vous donne un avertissement. Ci-dessous vous trouverez la raison de votre avertissement !",
         fields: [{
             name: "**Raison de l'avertissement :**",
-            value: `__*${collected.first().content}*__\n\n    `
+            value: `**${collected.first().content}**\n\n    `
         },
         {
             name: "**Informations supplémentaires !**",
@@ -63,11 +63,11 @@ const wait = async function(message,mentioned,arg,client){
     
     if (collected){
         mentioned.send({ embeds: [embed] });
-        message.channel.send(`Le message : "_${collected.first().content}_" a bien été envoyé à ${arg} !`);
+        message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
+        client.channels.cache.get(configfile.salon_ch_logs).send(`**[ALERTE]** : L'utilisateur ${arg} a reçus l'avertissement suivant : **${collected.first().content}**`)
     } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
 
-    console.log(collected.first().content)
     return 
 }
