@@ -14,8 +14,6 @@ module.exports.run = (client, message, args) => {
     let mentioned = message.mentions.users.first();	
     let erreur = 0;
 
-    const msg_filter = (m) => m.author.id === message.author.id;
-
     
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
     const msg_filter = (m) => m.author.id === message.author.id;
