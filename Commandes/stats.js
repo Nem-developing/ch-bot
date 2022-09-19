@@ -1,5 +1,6 @@
 const Discord = require('discord.js'); // Import de la bibliothèque "discord.js".
 const moment = require('moment');
+moment.locale('fr');
 
 module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
