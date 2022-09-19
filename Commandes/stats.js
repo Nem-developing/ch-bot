@@ -5,7 +5,7 @@ const moment = require('moment');
 module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
     if (!membre) { return message.channel.send('Veuillez mentionner un utilisateur !'); }
-
+    message.channel.send(membre.user.presence)
     message.channel.send({
         embed: {
             color: 3447003,
@@ -24,7 +24,7 @@ module.exports.run = (client, message, args) => {
                 },
                 {
                     name: 'Jeu :',
-                    value: membre.user.presence.game ? membre.user.presence.game.name : 'Aucun jeu'
+                    value: membre.user.presence.status ? membre.user.presence.game.name : 'Aucun jeu'
                 },
                 {
                     name: 'Rejoin le :',

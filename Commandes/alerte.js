@@ -1,13 +1,15 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const configfile = require('../config.json');
 
 module.exports.run = (client, message, args) => {
+    if (!message.member.roles.cache.has(configfile.role_staff)) {
+        message.channel.send("Vous n'avez pas les perms nécessaires pour exécuter cette commande !")
+        return;
+	}
     if (!args[0]) {
         return message.channel.send("Veuillez spécifier un Adérent à averir  !\n\n Utilisation : `!ch alerte [membre_à_avertir]`");
     }
-
-    if (!message.guild.members.cache.get(message.author.id).hasPermission('MANAGE_ROLES')) { return message.channel.send('Vous n\'avez pas la permission d\'utiliser cette commande !'); }
-
-
+    
 
     let mentioned = message.mentions.users.first();	
     let erreur = 0;
