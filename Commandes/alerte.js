@@ -17,7 +17,7 @@ module.exports.run = (client, message, args) => {
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
 
-    let result = wait();
+    let result = wait(message);
 
 
     if (!result){
@@ -40,7 +40,7 @@ module.exports.help = {
     name: 'alerte'
 };
 
-const wait = async function(){
+const wait = async function(message){
     const msg_filter = (m) => m.author.id === message.author.id;
     const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1 });
     return collected
