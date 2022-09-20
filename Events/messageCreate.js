@@ -3,7 +3,6 @@ const prefix = '!ch';
 
 module.exports = (client, message) => {
     if (message.author.bot || message.channel.type === 'dm')  return; 
-    if (!message.channel.permissionsFor(client.user).has('SEND_MESSAGES'))  return; 
     if (!message.content.startsWith(prefix)) return; 
 
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
