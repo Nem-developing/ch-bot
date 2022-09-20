@@ -58,11 +58,15 @@ const wait = async function(message,arg,client,mentioned,user){
                     text: "© Chrétiens-FR"
                 }
             }
+        try {
+            mentioned.send({ embeds: [txt] });
+            message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${user} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
 
-        mentioned.send({ embeds: [txt] });
-        message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
-        client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${user} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
-    } else {
+        } catch (error) {
+            message.channel.send(`Une erreur est survenue`);
+        }
+            } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
 
