@@ -21,7 +21,7 @@ module.exports.run = (client, message, args) => {
    
     // Envoie du message au rapporteur
     let channeldm = message.author.dmChannel;
-    message.channeldm.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
+    channeldm.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
     
 
 
