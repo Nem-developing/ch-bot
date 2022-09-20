@@ -104,8 +104,7 @@
     client.on('messageDelete', message => {
         if (!message.author) return; // On ignore les messages qui ne sont pas en cache.
         console.log(`le message : "**${message.cleanContent}**" a été suprimé du salon : ${message.channel.name} à ${new Date()} de : ${message.author}`);
-        client.channels.cache.get(configfile.salon_ch_logs).send({
-            embed: {
+        const embed = {
                 color: 3447003,
                 author: {
                     name: client.user.username,
@@ -135,8 +134,9 @@
                     text: "© Chrétiens-FR - DELETED MESSAGE !"
                 }
             }
+        client.channels.cache.get(configfile.salon_ch_logs).send({ embeds: [embed] });
 
-        });
+        
     });
 
 
