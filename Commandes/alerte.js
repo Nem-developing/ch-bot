@@ -16,7 +16,6 @@ module.exports.run = (client, message, args) => {
 
 
     message.channel.send(`Veuillez spécifier le message d'avertissement concernant le membre : ${args[0]}`)
-
     wait(message,mentioned,args[0],client);
 
 
