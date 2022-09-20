@@ -70,8 +70,7 @@ module.exports.run = (client, message, args) => {
                 nature = "Nature indéfinie"
             }
 
-            message.channel.send({
-                embed: {
+            const embed = {
                     color: 3447003,
                     author: {
                         name: client.user.username
@@ -107,9 +106,9 @@ module.exports.run = (client, message, args) => {
                     footer: {
                         text: "© Chrétiens-FR"
                     }
-                }
-            });
 
+                }
+            message.channel.send({ embeds: [embed] });
 
 		} catch (error) {
 			console.error(res.error);
