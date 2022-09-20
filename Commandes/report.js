@@ -61,7 +61,7 @@ const wait = async function(message,arg,client,mentioned,user){
         try {
             mentioned.send({ embeds: [txt] });
             message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
-            client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${user} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${client} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
 
         } catch (error) {
             message.channel.send(`Une erreur est survenue`);
