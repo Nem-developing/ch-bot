@@ -40,8 +40,7 @@ module.exports.run = (client, message, args) => {
 
 
                 // Message à l'utilisateur raporté.
-                mentioned.send({
-                    embed: {
+                const embed = {
                         color: 3447003,
                         author: {
                             name: client.user.username,
@@ -70,8 +69,8 @@ module.exports.run = (client, message, args) => {
                             text: "© Chrétiens-FR"
                         }
                     }
-
-                })
+                message.author.send({ embeds: [embed] });
+                client.channels.cache.get(configfile.salon_ch_logs).send({ embeds: [embed] });
                 message.author.send(`Le rapport à bien été envoyé au staff ! (Merci pour votre aide !)`);
             })
             .catch(function () {
