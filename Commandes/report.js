@@ -1,7 +1,7 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 const configfile = require('../config.json');
 
-module.exports.run = (client, message, args) => {
+module.exports.run = (client, message, args, user) => {
      
     let mentioned = message.mentions.users.first();
     if (!args[0]) {
@@ -15,7 +15,7 @@ module.exports.run = (client, message, args) => {
     }
     
     message.channel.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
-    wait(message,args,client,mentioned);
+    wait(message,args,client,mentioned,user);
 };
 
 
@@ -23,7 +23,7 @@ module.exports.help = {
     name: 'report'
 };
 
-const wait = async function(message,arg,client,mentioned){
+const wait = async function(message,arg,client,mentioned,user){
     const msg_filter = (m) => m.author.id === message.author.id;
     const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
 
@@ -35,20 +35,20 @@ const wait = async function(message,arg,client,mentioned){
                     name: client.user.username,
                     icon_url: client.user.avatarURL
                 },
-                title: "VOUS AVEZ REÇU UN AVERTISSEMENT - Chrétiens-FR",
+                title: "UN MEMBRE DU SERVEUR A RAPORTÉ VORTE COMPORTEMENT - Chrétiens-FR",
                 url: "",
-                description: "Un membre de l'équipe d'administration du serveur Chrétiens-Fr vous donne un avertissement. Ci-dessous vous trouverez la raison de votre avertissement !",
+                description: "Un membre du serveur Chrétiens-Fr vient d'informer le staff de votre comportement. Vous trouverez ci-dessous la raison donnée par celui-ci !",
                 fields: [{
                     name: "**Raison de l'avertissement :**",
                     value: `__*${collected.first().content}*__\n\n    `
                 },
                 {
-                    name: "**Informations supplémentaires !**",
-                    value: "Vous avez le droit à un maximum de trois avertissements, nous pouvons également décider de vous bannir directement sans prendre en compte votre seuil d'avertissement si nous considérons que vous avez trop enfreint le réglement."
+                    name: "**Une erreur ?**",
+                    value: "Un membre du staff va s'occuper de traiter l'affaire dans les plus brefs délais. Celui-ci vérifieras l'authenticité des propos de ce rapport."
                 },
                 {
                     name: "**Qu'est-ce qu'il se passe maintenant ?**",
-                    value: "__Un avertissement vous a été délivré certes, mais cela ne change en rien vos droits sur le serveur, n'ayez donc pas peur de parler de nouveau tant que vous respecter toutes les règles inscrites dans le <#564897331913162802>.__ \n\n*Nous vous recomandons de bien prendre en compte cet avertissement en adaptant votre comportement !*\n\n**Toute l'équipe du staff vous remercie pour votre implication sur le serveur !**"
+                    value: "__Nous vous invitons à respecter toutes les règles inscrites dans le Règlement du serveur.__ \n\n"
                 },
 
                 ],
@@ -61,7 +61,7 @@ const wait = async function(message,arg,client,mentioned){
 
         mentioned.send({ embeds: [txt] });
         message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
-        client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${arg} a reçus l'avertissement suivant : **${collected.first().content}**`)
+        client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${user} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
     } else {
         message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
     }
