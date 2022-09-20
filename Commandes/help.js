@@ -3,8 +3,7 @@ const Discord = require('discord.js'); // Import de la bibliothéque "discord.js
 module.exports.run = (client, message, args) => {
     const membre = message.mentions.members.first() || message.member;
 
-    message.channel.send({
-        embed: {
+    const embed = {
             color: 3447003,
             author: {
                 name: client.user.username,
@@ -38,7 +37,7 @@ module.exports.run = (client, message, args) => {
             }
         }
 
-        })
+        message.channel.send({ embeds: [embed] });
     }
 
 module.exports.help = {
