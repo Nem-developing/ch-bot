@@ -30,7 +30,7 @@ module.exports.help = {
 };
 
 const gettext = async function(message) {
-    let collected = await message.author.createDM({ max: 1, time: 400000 })
+    let collected = await message.author.dmChannel.awaitMessages({ max: 1, time: 400000 })
     .then(() => {
         message.author.send(collected)
       });
