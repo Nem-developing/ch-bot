@@ -1,7 +1,7 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
 const configfile = require('../config.json');
 
-module.exports.run = (client, message, args, user) => {
+module.exports.run = (client, message, args) => {
      
     let mentioned = message.mentions.users.first();
     if (!args[0]) {
@@ -15,7 +15,7 @@ module.exports.run = (client, message, args, user) => {
     }
     
     message.channel.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
-    wait(message,args,client,mentioned,user);
+    wait(message,args,client,mentioned);
 };
 
 
@@ -23,7 +23,7 @@ module.exports.help = {
     name: 'report'
 };
 
-const wait = async function(message,arg,client,mentioned,user){
+const wait = async function(message,arg,client,mentioned){
     const msg_filter = (m) => m.author.id === message.author.id;
     const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
 
@@ -61,7 +61,7 @@ const wait = async function(message,arg,client,mentioned,user){
         try {
             mentioned.send({ embeds: [txt] });
             message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
-            client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${client} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${client.name} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
 
         } catch (error) {
             message.channel.send(`Une erreur est survenue`);
