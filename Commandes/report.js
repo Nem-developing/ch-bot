@@ -16,7 +16,6 @@ module.exports.run = (client, message, args) => {
     
     message.channel.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
     wait(message,args,client,mentioned);
-    console.log(client);
 };
 
 
@@ -62,7 +61,7 @@ const wait = async function(message,arg,client,mentioned){
         try {
             mentioned.send({ embeds: [txt] });
             message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
-            client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${client.name} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
+            client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${message.author} avertis le staff concernant ${arg} via le motif suivant : **${collected.first().content}**`)
 
         } catch (error) {
             message.channel.send(`Une erreur est survenue`);
