@@ -15,7 +15,6 @@ module.exports.run = (client, message, args) => {
     }
     
     message.channel.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
-    let mentioned = message.mentions.users.first();	
     wait(message,args,client,mentioned);
 };
 
