@@ -59,7 +59,7 @@ const wait = async function(message,arg,client,mentioned){
                 }
             }
 
-        mentioned.send({ embeds: [embed] });
+        mentioned.send({ embeds: [txt] });
         message.channel.send(`Le message : "**${collected.first().content}**" a bien été envoyé à ${arg} !`);
         client.channels.cache.get(configfile.salon_ch_logs).send(`**[REPORT]** : L'utilisateur ${arg} a reçus l'avertissement suivant : **${collected.first().content}**`)
     } else {
