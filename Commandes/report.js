@@ -1,4 +1,5 @@
 const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+const configfile = require('../config.json');
 
 module.exports.run = (client, message, args) => {
     let mentioned = message.mentions.users.first();
@@ -31,48 +32,46 @@ module.exports.run = (client, message, args) => {
                 errors: ['time'],
             })
         .then((collected) => {
-                
-                     
-                // Envoie du raport au staff.
-            client.channels.cache.get("658348418816540723").send(`Le membre ${message.author} vous rapporte les faits suivant consernant l'utilisateur ${args[0]} :\n\n**${collected.first().content}**`);
-
-                    
+            // Envoie du raport au staff.
+            client.channels.cache.get(configfile.salon_ch_logs).send(`Le membre ${message.author} vous rapporte les faits suivant consernant l'utilisateur ${args[0]} :\n\n**${collected.first().content}**`);
 
 
-                // Message à l'utilisateur raporté.
-                const embed = {
-                        color: 3447003,
-                        author: {
-                            name: client.user.username,
-                            icon_url: client.user.avatarURL
-                        },
-                        title: "Quelqu'un a rapporté votre comportement - Chrétiens-FR",
-                        url: "",
-                        description: "Un membre du serveur Chrétiens-FR a souhaité rapporté votre comportement à l'équipe d'administration. Ci-dessous vous trouverez la raison de ce rapport !",
-                        fields: [{
-                            name: "**Raison du raport :**",
-                            value: `__*${collected.first().content}*__\n\n    `
-                        },
-                        {
-                            name: "**Informations supplémentaires !**",
-                            value: "La commande de rapport peut-être exécuté par nimporte qui sur le serveur. N'ayez donc pas d'inquiétudes si vous n'avez rien fait."
-                        },
-                        {
-                            name: "**Qu'est-ce qu'il se passe maintenant ?**",
-                            value: "__Si ce rapport est bien fondé, vous receverez un avertissement ou un ban selon le motif de celui-ci. Cependant, si nous ne trouvons pas de fondement dans ce rapport vous n'aurez aucun soucis. Nous vous encourageons à respecter toutes les règles inscrites dans le <#564897331913162802>.__ \n\n**Toute l'équipe du staff vous remercie pour votre implication sur le serveur !**"
-                        },
+            // Message à l'utilisateur raporté.
+            var embed2 = {
+                    color: 3447003,
+                    author: {
+                        name: client.user.username,
+                        icon_url: client.user.avatarURL
+                    },
+                    title: "Quelqu'un a rapporté votre comportement - Chrétiens-FR",
+                    url: "",
+                    description: "Un membre du serveur Chrétiens-FR a souhaité rapporté votre comportement à l'équipe d'administration. Ci-dessous vous trouverez la raison de ce rapport !",
+                    fields: [{
+                        name: "**Raison du raport :**",
+                        value: `__*${collected.first().content}*__\n\n    `
+                    },
+                    {
+                        name: "**Informations supplémentaires !**",
+                        value: "La commande de rapport peut-être exécuté par nimporte qui sur le serveur. N'ayez donc pas d'inquiétudes si vous n'avez rien fait."
+                    },
+                    {
+                        name: "**Qu'est-ce qu'il se passe maintenant ?**",
+                        value: "__Si ce rapport est bien fondé, vous receverez un avertissement ou un ban selon le motif de celui-ci. Cependant, si nous ne trouvons pas de fondement dans ce rapport vous n'aurez aucun soucis. Nous vous encourageons à respecter toutes les règles inscrites dans le <#564897331913162802>.__ \n\n**Toute l'équipe du staff vous remercie pour votre implication sur le serveur !**"
+                    },
 
-                        ],
-                        timestamp: new Date(),
-                        footer: {
-                            icon_url: client.user.avatarURL,
-                            text: "© Chrétiens-FR"
-                        }
+                    ],
+                    timestamp: new Date(),
+                    footer: {
+                        icon_url: client.user.avatarURL,
+                        text: "© Chrétiens-FR"
                     }
-                message.author.send({ embeds: [embed] });
-                client.channels.cache.get(configfile.salon_ch_logs).send({ embeds: [embed] });
+                }
+
+                
+                message.author.send({ embeds: [embed2] });
+                client.channels.cache.get(configfile.salon_ch_logs).send({ embeds: [embed2] });
                 message.author.send(`Le rapport à bien été envoyé au staff ! (Merci pour votre aide !)`);
-            })
+        })
             .catch(function () {
                 message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
             });
