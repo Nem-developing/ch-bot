@@ -15,7 +15,8 @@ module.exports.run = (client, message, args) => {
     }
     
     message.channel.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
-    wait(message,args,client);
+    let mentioned = message.mentions.users.first();	
+    wait(message,args,client,mentioned);
 };
 
 
@@ -23,7 +24,7 @@ module.exports.help = {
     name: 'report'
 };
 
-const wait = async function(message,arg,client){
+const wait = async function(message,arg,client,mentioned){
     const msg_filter = (m) => m.author.id === message.author.id;
     const collected = await message.channel.awaitMessages({ filter: msg_filter, max: 1, time: 15000 });
 
