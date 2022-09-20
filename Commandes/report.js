@@ -21,24 +21,13 @@ module.exports.run = (client, message, args) => {
    
     // Envoie du message au rapporteur
     message.author.send(`Veuillez spécifier le message à rapporter au staff concernant le membre : ${args[0]} (Exemple : Ce membre m'a insulté).\n\n\n**__(Faites attentions, Le staff pourait vous banir si il décrète que vous mentez)__**`)
-        .then(function () {
-            message.author.dmChannel.awaitMessages(response => message.content, {
-                max: 1,
-                time: 300000000,
-                errors: ['time'],
-            })
-        .then((collected) => {
-            // Envoie du raport au staff.
-            console.log(collected)
-            client.channels.cache.get(configfile.salon_ch_logs).send(`Le membre ${message.author} vous rapporte les faits suivant consernant l'utilisateur ${args[0]} :\n\n**${collected.first().content}**`);
-            message.author.send({ embeds: [embed2] });
-            client.channels.cache.get(configfile.salon_ch_logs).send({ embeds: [embed2] });
-            message.author.send(`Le rapport à bien été envoyé au staff ! (Merci pour votre aide !)`);
-        })
-            .catch(function () {
-                message.channel.send(`Vous n'avez pas spécifié de message à envoyer ou vous n'avez pas bien mentionné l'utilisateur concerné, l'envoie est annulé...`);
-            });
-    })
+    const msg_filter = (m) => m.author.id === message.author.id;
+    message.author.dmChannel.awaitMessages({ filter: msg_filter, max: 1 })
+    .then((collected) => {
+        console.log(collected)
+    });
+
+
 };
 
 
