@@ -1,5 +1,4 @@
 module.exports = (client) => {
-    console.log("test")
-    client.user.setActivity(`on ${client.guilds.cache.size} servers`);
-
+    console.log("Ready !")
+    client.user.setActivity(`!ch help | V22.9 | Made by Nem#2318`);
 };
