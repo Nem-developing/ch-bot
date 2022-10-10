@@ -1,5 +1,4 @@
 module.exports = (client) => {
-    client.user.setActivity('', { type: "PLAYING"});
     client.user.setStatus('online')
     client.user.setPresence({
         game: {
