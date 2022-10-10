@@ -1,4 +1,4 @@
+const configfile = require('./config.json');
 module.exports = (client) => {
-    console.log("Ready !")
-    client.user.setActivity(`!ch help | V22.9 | Made by Nem#2318`);
+    client.user.setActivity(`!ch help | Version ${configfile.version} | Made by Nem#2318`);
 };
